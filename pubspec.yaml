@@ -1,0 +1,83 @@
+name: JanSahayak
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.2 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # -------------------------- state management --------------------------
+  get: ^4.6.6
+
+  # -------------------------- ui --------------------------
+  intl: ^0.18.1
+
+
+
+  # -------------------------- Local storage --------------------------
+  shared_preferences: ^2.2.1
+  cached_network_image: ^3.2.3
+  flutter_cache_manager: ^3.3.1
+
+  #_______________________ API integration _______________________
+  http:
+
+  #_______________________ Firebase Service _______________________
+  cupertino_icons: ^1.0.6
+  device_info_plus: ^10.1.0
+  package_info_plus: ^8.0.0
+  crypto: ^3.0.3
+  fluttertoast: ^8.2.4
+  image_crop: ^0.4.1
+  image_picker: ^1.0.5
+  flutter_image_compress: ^2.1.0
+  path_provider: ^2.1.1
+  loading_indicator: ^3.1.1
+  permission_handler: ^11.1.0
+  country_picker: ^2.0.23
+  sms_autofill: ^2.3.1
+  connectivity_plus: ^6.0.5
+  url_launcher: ^6.3.0
+  webview_flutter: ^4.8.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/icons/
+    - assets/gif/
+
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto_regular.ttf
+          weight: 400
+        - asset: assets/fonts/roboto_medium.ttf
+          weight: 500
+        - asset: assets/fonts/roboto_bold.ttf
+          weight: 600
+        - asset: assets/fonts/pacifico_regular.ttf
+          weight: 200
+        - asset: assets/fonts/pt_sans_regular.ttf
+          weight: 100
+        - asset: assets/fonts/robotolight.ttf
+          weight: 300
+
+
