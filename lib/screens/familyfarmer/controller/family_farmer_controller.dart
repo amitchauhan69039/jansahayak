@@ -8,6 +8,17 @@ class FamilyFarmerController extends GetxController {
   FamilyRecordModel? familyRecordModel;
   TextEditingController yearController = TextEditingController();
   String year="";
+  bool isMainVisible=false;
+  String noDataVisible="notVisible";
+  String farmerId="---";
+  String farmerMobileNo="---";
+  String farmerName="---";
+  String farmerFatherName="---";
+  String farmerAccountNo="---";
+  String farmerIfscCode="---";
+  String farmerAccountStatus="---";
+  String farmerMFMB="---";
+  String accountStatus="0";
 
   @override
   void onInit() {
@@ -69,8 +80,39 @@ class FamilyFarmerController extends GetxController {
         FamilyRecordModel? model = await FamilyFarmerApi.getRecords(queryParam);
 
         if (model != null) {
+          noDataVisible="visible";
           if (model.output!.toLowerCase() == "success".toLowerCase()) {
             familyRecordModel=model;
+            if(model.data!.length>0){
+              noDataVisible="visible";
+              isMainVisible=true;
+              farmerId=model.data![0].FarmerID!;
+              farmerMobileNo=model.data![0].FarmerMobileNo!;
+              farmerName=model.data![0].FarmerName!;
+              farmerFatherName=model.data![0].FarmerFatherName!;
+              farmerAccountNo=model.data![0].FarmerAccountNo!;
+              farmerIfscCode=model.data![0].FarmerIFSCCode!;
+              farmerIfscCode=model.data![0].AccountStatus!;
+              farmerMFMB=model.data![0].MFMBModifyDate!;
+              switch (model.data![0].AccountStatus!) {
+                case "No Status for Verification":
+                case "Verified with Diffrent Name":
+                case "Not Verified":
+                case "Pending Verification With Bank":
+                case "NA":
+                  accountStatus = "1";
+                  break;
+                default:
+                  accountStatus = "0";
+                  break;
+              }
+
+
+
+
+            }else{
+              isMainVisible=false;
+            }
           }
         }
       } catch (e) {

@@ -84,6 +84,7 @@ class _SubServiceScreenState extends State<SubServiceScreen> {
 
                             }else   if(controller.data!.data![index].eSerName!.contains("Meri Fasal")){
                               if(PrefService.getString(PrefKeys.USER_ROLE)=="P") {
+                                Get.to(() => MfmbScreen());
 
                               }else {
                                 Get.to(() => CommonFamilyNotVerfiedScreen());

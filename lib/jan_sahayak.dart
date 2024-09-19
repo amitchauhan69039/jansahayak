@@ -74,3 +74,9 @@ export 'package:JanSahayak/screens/guestfamilyidverification/guest_familyid_veri
 export 'package:JanSahayak/screens/familyfarmer/family_famer_screen.dart';
 export 'package:JanSahayak/screens/familyfarmer/controller/family_farmer_controller.dart';
 export 'package:JanSahayak/screens/familyfarmer/api/family_farmer_api.dart';
+export 'package:JanSahayak/screens/farmerpaymentdetail/farmer_payment_detail_screen.dart';
+export 'package:JanSahayak/screens/farmerpaymentdetail/controller/farmer_payment_detail_controller.dart';
+export 'package:JanSahayak/screens/farmerpaymentdetail/api/farmer_payment_detail_api.dart';
+export 'package:JanSahayak/screens/mfmb/mfmb_screen.dart';
+export 'package:JanSahayak/screens/mfmb/controller/mfmb_controller.dart';
+export 'package:JanSahayak/screens/mfmb/api/mfmb_api.dart';

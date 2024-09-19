@@ -88,116 +88,127 @@ class _SaralScreenState extends State<SaralScreen> {
                 child: Container(
                   child: Card(
                     elevation: 5,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        color: ColorRes.saralCardBgColor,
-                      ),
+                    child: InkWell(
+                      onTap: (){
+                        if(PrefService.getString(PrefKeys.USER_ROLE)=="P") {
+                          controller.getSaralAuthData(controller.data!.data![index].clientID!,controller.data!.data![index].headerParameter!,
+                              controller.data!.data![index].serviceID!);
+                        }else {
+                          Get.to(() => CommonFamilyNotVerfiedScreen());
+                        }
 
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10,bottom: 10),
-                        child: Row(
-                          children: [
-                            appSizedBox(width: 10),
-                            Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(50)),
-                                  color: index%2==0 ? ColorRes.accentColor : index%3==0 ? ColorRes.appPrimaryColor : index%4 ==0 ? ColorRes.digiColor : index%5 == 0 ? ColorRes.saralColor : ColorRes.appPrimaryColor
-                              ),
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  textAlign: TextAlign.center,
-                                  PrefService.getString(PrefKeys.selectedLanguage)=="en" ?
-                                  controller.data!.data![index].serviceName![0].toUpperCase() : controller.data!.data![index].serviceNameHindi![0].toUpperCase(),
-                                  style: styleW600S15.copyWith(
-                                      fontSize: 18,
-                                      color: ColorRes.white,
-                                      height: 1),
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          color: ColorRes.saralCardBgColor,
+                        ),
+
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10,bottom: 10),
+                          child: Row(
+                            children: [
+                              appSizedBox(width: 10),
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                                    color: index%2==0 ? ColorRes.accentColor : index%3==0 ? ColorRes.appPrimaryColor : index%4 ==0 ? ColorRes.digiColor : index%5 == 0 ? ColorRes.saralColor : ColorRes.appPrimaryColor
+                                ),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    textAlign: TextAlign.center,
+                                    PrefService.getString(PrefKeys.selectedLanguage)=="en" ?
+                                    controller.data!.data![index].serviceName![0].toUpperCase() : controller.data!.data![index].serviceNameHindi![0].toUpperCase(),
+                                    style: styleW600S15.copyWith(
+                                        fontSize: 18,
+                                        color: ColorRes.white,
+                                        height: 1),
+                                  ),
                                 ),
                               ),
-                            ),
-                            appSizedBox(width: 10),
-                            Expanded(
-                                child:Flexible(
-                                  child: Column(
+                              appSizedBox(width: 10),
+                              Expanded(
+                                  child:Flexible(
+                                    child: Column(
 
-                                    children: [
-                                      appSizedBox(height: 5),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          maxLines: 2,
-                                          overflow: TextOverflow.ellipsis,
-                                          textAlign: TextAlign.left,
-                                          PrefService.getString(PrefKeys.selectedLanguage)=="en" ?
-                                          controller.data!.data![index].serviceName! : controller.data!.data![index].serviceNameHindi!,
-                                          style: styleW500S12.copyWith(
-                                              fontSize: 13,
-                                              color: ColorRes.black,
-                                              height: 1.1),
+                                      children: [
+                                        appSizedBox(height: 5),
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.left,
+                                            PrefService.getString(PrefKeys.selectedLanguage)=="en" ?
+                                            controller.data!.data![index].serviceName! : controller.data!.data![index].serviceNameHindi!,
+                                            style: styleW500S12.copyWith(
+                                                fontSize: 13,
+                                                color: ColorRes.black,
+                                                height: 1.1),
+                                          ),
                                         ),
-                                      ),
-                                      appSizedBox(height: 5),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Wrap(
-                                          direction: Axis.horizontal,
-                                          children: [
-                                            Text(
-                                              textAlign: TextAlign.left,
-                                              'deptt'.tr,
-                                              style: styleW700S43.copyWith(
-                                                  fontSize: 11,
-                                                  color: ColorRes.black,
-                                                  height: 1),
-                                            ),
-                                            Text(
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.left,
-                                              PrefService.getString(PrefKeys.selectedLanguage)=="en" ?
-                                              controller.data!.data![index].deptName! : controller.data!.data![index].deptNameHindi!,
-                                              style: styleW700S43.copyWith(
-                                                  fontSize: 11,
-                                                  color: ColorRes.black,
-                                                  height: 1.1),
-                                            ),
+                                        appSizedBox(height: 5),
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Wrap(
+                                            direction: Axis.horizontal,
+                                            children: [
+                                              Text(
+                                                textAlign: TextAlign.left,
+                                                'deptt'.tr,
+                                                style: styleW700S43.copyWith(
+                                                    fontSize: 11,
+                                                    color: ColorRes.black,
+                                                    height: 1),
+                                              ),
+                                              Text(
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
+                                                textAlign: TextAlign.left,
+                                                PrefService.getString(PrefKeys.selectedLanguage)=="en" ?
+                                                controller.data!.data![index].deptName! : controller.data!.data![index].deptNameHindi!,
+                                                style: styleW700S43.copyWith(
+                                                    fontSize: 11,
+                                                    color: ColorRes.black,
+                                                    height: 1.1),
+                                              ),
 
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )
-                            ),
-                            appSizedBox(width: 5),
-                            Card(
-                              elevation: 2.0,
-                              child: Container(
-                                  height: 32,
-                                  width: 60,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                    color: ColorRes.appPrimaryColor
-                                  ),
-                                  child:  Align(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      textAlign: TextAlign.center,
-                                      'apply'.tr,
-                                      style: styleOpenW100S12.copyWith(
-                                          fontSize: 11,
-                                          color: ColorRes.white,
-                                          height: 1),
+                                            ],
+                                          ),
+                                        )
+                                      ],
                                     ),
-                                  ),
+                                  )
                               ),
-                            ),
-                            appSizedBox(width: 2),
-                          ],
+                              appSizedBox(width: 5),
+                              Card(
+                                elevation: 2.0,
+                                child: Container(
+                                    height: 32,
+                                    width: 60,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(7),
+                                      color: ColorRes.appPrimaryColor
+                                    ),
+                                    child:  Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        textAlign: TextAlign.center,
+                                        'apply'.tr,
+                                        style: styleOpenW100S12.copyWith(
+                                            fontSize: 11,
+                                            color: ColorRes.white,
+                                            height: 1),
+                                      ),
+                                    ),
+                                ),
+                              ),
+                              appSizedBox(width: 2),
+                            ],
+                          ),
                         ),
                       ),
                     ),

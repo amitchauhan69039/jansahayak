@@ -48,9 +48,12 @@ class ColorRes {
   static const Color digiColor = Color(0xFFffc15f);
   static const Color saralColor = Color(0xFF872f68);
   static const Color buttonRedColor = Color(0xFFEA5D5D);
+  static const Color highRedColor = Color(0xFFED2626);
+  static const Color highTealColor = Color(0xFF05A57E);
   static const Color headerBgColor = Color(0xFF04B38A);
   static const Color lightTextColor = Color(0xFF8E8E8E);
   static const Color tealTransColor = Color(0x2D05A57E);
+  static const Color redTransColor = Color(0x46FF5C5C);
   static const Color fontLightColor = Color(0xFF6A6A6A);
   static const Color downloadBgColor = Color(0xFFFF5C5C);
 

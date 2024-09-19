@@ -50,12 +50,12 @@ class _HomePageState extends State<HomePage> {
                                         flex: 1,
                                         child: Padding(
                                           padding:
-                                          const EdgeInsets.only(left: 20),
+                                              const EdgeInsets.only(left: 20),
                                           child: Column(
                                             mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                                MainAxisAlignment.center,
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Row(
                                                 children: [
@@ -63,20 +63,27 @@ class _HomePageState extends State<HomePage> {
                                                     textAlign: TextAlign.left,
                                                     'Hi, '.tr,
                                                     style:
-                                                    styleW400S20.copyWith(
-                                                        fontSize: 15,
-                                                        color: ColorRes
-                                                            .darkGreyColor),
+                                                        styleW400S20.copyWith(
+                                                            fontSize: 15,
+                                                            color: ColorRes
+                                                                .darkGreyColor),
                                                   ),
                                                   Text(
                                                     textAlign: TextAlign.left,
-                                                    PrefService.getString(PrefKeys.USER_ROLE)=="P" ?
-                                                    PrefService.getString(PrefKeys.FAMILY_MEMBERS_NAME) :PrefService.getString(PrefKeys.GUEST_NAME),
+                                                    PrefService.getString(PrefKeys
+                                                                .USER_ROLE) ==
+                                                            "P"
+                                                        ? PrefService.getString(
+                                                            PrefKeys
+                                                                .FAMILY_MEMBERS_NAME)
+                                                        : PrefService.getString(
+                                                            PrefKeys
+                                                                .GUEST_NAME),
                                                     style:
-                                                    styleW400S20.copyWith(
-                                                        fontSize: 15,
-                                                        color:
-                                                        ColorRes.white),
+                                                        styleW400S20.copyWith(
+                                                            fontSize: 15,
+                                                            color:
+                                                                ColorRes.white),
                                                   ),
                                                 ],
                                               ),
@@ -113,33 +120,30 @@ class _HomePageState extends State<HomePage> {
                                           children: [
                                             Expanded(
                                                 child: Padding(
-                                                  padding: const EdgeInsets
-                                                      .only(
-                                                      left: 10, right: 10),
-                                                  child: TextField(
-                                                    keyboardType:
+                                              padding: const EdgeInsets.only(
+                                                  left: 10, right: 10),
+                                              child: TextField(
+                                                keyboardType:
                                                     TextInputType.text,
-                                                    textAlignVertical:
+                                                textAlignVertical:
                                                     TextAlignVertical.center,
-                                                    style: styleW400S13
-                                                        .copyWith(
-                                                        fontSize: 12,
-                                                        color: ColorRes
-                                                            .textColor),
-                                                    decoration:
+                                                style: styleW400S13.copyWith(
+                                                    fontSize: 12,
+                                                    color: ColorRes.textColor),
+                                                decoration:
                                                     InputDecoration.collapsed(
-                                                      hintText: 'Search'.tr,
-                                                      hintStyle:
+                                                  hintText: 'Search'.tr,
+                                                  hintStyle:
                                                       styleW400S13.copyWith(
                                                           fontSize: 12,
                                                           color: ColorRes
                                                               .textColor),
-                                                    ),
-                                                  ),
-                                                )),
+                                                ),
+                                              ),
+                                            )),
                                             Padding(
                                               padding:
-                                              const EdgeInsets.all(10.0),
+                                                  const EdgeInsets.all(10.0),
                                               child: Align(
                                                 alignment: Alignment.center,
                                                 child: Image.asset(
@@ -162,10 +166,10 @@ class _HomePageState extends State<HomePage> {
                           child: Card(
                             elevation: 5.0,
                             child: Container(
-                              margin: EdgeInsets.only(left: 5,right: 5),
+                              margin: EdgeInsets.only(left: 5, right: 5),
                               decoration: BoxDecoration(
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(5)),
+                                      BorderRadius.all(Radius.circular(5)),
                                   color: ColorRes.cardBgColor),
                               child: Row(
                                 children: [
@@ -176,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                                             left: 10.0, top: 10, bottom: 10),
                                         child: Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               textAlign: TextAlign.left,
@@ -196,8 +200,14 @@ class _HomePageState extends State<HomePage> {
                                             Row(
                                               children: [
                                                 InkWell(
-                                                  onTap:(){
-                                                    Get.to(() => WebViewScreen(serviceName: 'parivar_pehchan_patra'.tr,serviceUrl: Constants.chatLink,));
+                                                  onTap: () {
+                                                    Get.to(() => WebViewScreen(
+                                                          serviceName:
+                                                              'parivar_pehchan_patra'
+                                                                  .tr,
+                                                          serviceUrl: Constants
+                                                              .chatLink,
+                                                        ));
                                                   },
                                                   child: Container(
                                                     height: 35,
@@ -206,20 +216,21 @@ class _HomePageState extends State<HomePage> {
                                                         color: ColorRes
                                                             .homeButtonColor),
                                                     child: Align(
-                                                      alignment: Alignment.center,
+                                                      alignment:
+                                                          Alignment.center,
                                                       child: Padding(
                                                         padding:
-                                                        const EdgeInsets.all(
-                                                            3.0),
+                                                            const EdgeInsets
+                                                                .all(3.0),
                                                         child: Text(
                                                           textAlign:
-                                                          TextAlign.center,
+                                                              TextAlign.center,
                                                           'Chat'.tr,
                                                           style: styleW400S20
                                                               .copyWith(
-                                                              fontSize: 10,
-                                                              color: ColorRes
-                                                                  .white),
+                                                                  fontSize: 10,
+                                                                  color: ColorRes
+                                                                      .white),
                                                         ),
                                                       ),
                                                     ),
@@ -235,18 +246,18 @@ class _HomePageState extends State<HomePage> {
                                                     alignment: Alignment.center,
                                                     child: Padding(
                                                       padding:
-                                                      const EdgeInsets.all(
-                                                          3.0),
+                                                          const EdgeInsets.all(
+                                                              3.0),
                                                       child: Text(
                                                         textAlign:
-                                                        TextAlign.center,
+                                                            TextAlign.center,
                                                         'Register \n Grievance'
                                                             .tr,
                                                         style: styleW400S20
                                                             .copyWith(
-                                                            fontSize: 10,
-                                                            color: ColorRes
-                                                                .appPrimaryDarkColor),
+                                                                fontSize: 10,
+                                                                color: ColorRes
+                                                                    .appPrimaryDarkColor),
                                                       ),
                                                     ),
                                                   ),
@@ -261,17 +272,17 @@ class _HomePageState extends State<HomePage> {
                                                     alignment: Alignment.center,
                                                     child: Padding(
                                                       padding:
-                                                      const EdgeInsets.all(
-                                                          3.0),
+                                                          const EdgeInsets.all(
+                                                              3.0),
                                                       child: Text(
                                                         textAlign:
-                                                        TextAlign.center,
+                                                            TextAlign.center,
                                                         'View Details'.tr,
                                                         style: styleW400S20
                                                             .copyWith(
-                                                            fontSize: 9,
-                                                            color: ColorRes
-                                                                .white),
+                                                                fontSize: 9,
+                                                                color: ColorRes
+                                                                    .white),
                                                       ),
                                                     ),
                                                   ),
@@ -307,7 +318,7 @@ class _HomePageState extends State<HomePage> {
                                 height: 120,
                                 decoration: BoxDecoration(
                                     borderRadius:
-                                    BorderRadius.all(Radius.circular(5)),
+                                        BorderRadius.all(Radius.circular(5)),
                                     color: ColorRes.white),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -339,10 +350,12 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             appSizedBox(width: 15),
                             Expanded(
-                              child:Text(
+                              child: Text(
                                 textAlign: TextAlign.left,
                                 controller.departmentName,
-                                style: styleW600S14.copyWith(fontSize: 14, color: ColorRes.appPrimaryDarkColor),
+                                style: styleW600S14.copyWith(
+                                    fontSize: 14,
+                                    color: ColorRes.appPrimaryDarkColor),
                               ),
                             ),
                             Image.asset(
@@ -351,12 +364,10 @@ class _HomePageState extends State<HomePage> {
                               height: 30,
                             ),
                             appSizedBox(width: 15),
-
                           ],
                         ),
                         appSizedBox(height: 8),
                         getGovertmentServices(),
-
                         appSizedBox(height: 8),
                         Padding(
                           padding: const EdgeInsets.only(left: 15.0),
@@ -365,13 +376,14 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               textAlign: TextAlign.left,
                               controller.proActiveServiceName,
-                              style: styleW600S14.copyWith(fontSize: 14, color: ColorRes.appPrimaryDarkColor),
+                              style: styleW600S14.copyWith(
+                                  fontSize: 14,
+                                  color: ColorRes.appPrimaryDarkColor),
                             ),
                           ),
                         ),
                         appSizedBox(height: 4),
                         getProActiveServices(),
-
                         appSizedBox(height: 10),
                         Padding(
                           padding: const EdgeInsets.only(left: 15.0),
@@ -380,17 +392,16 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               textAlign: TextAlign.left,
                               controller.programName,
-                              style: styleW600S14.copyWith(fontSize: 14, color: ColorRes.appPrimaryDarkColor),
+                              style: styleW600S14.copyWith(
+                                  fontSize: 14,
+                                  color: ColorRes.appPrimaryDarkColor),
                             ),
                           ),
                         ),
                         appSizedBox(height: 4),
                         Align(
-                          alignment: Alignment.topLeft,
-                            child: getProgramServices()
-                        ),
-
-
+                            alignment: Alignment.topLeft,
+                            child: getProgramServices()),
                         Padding(
                           padding: const EdgeInsets.all(10),
                           child: Card(
@@ -398,7 +409,7 @@ class _HomePageState extends State<HomePage> {
                             child: Container(
                               decoration: BoxDecoration(
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                      BorderRadius.all(Radius.circular(10)),
                                   color: ColorRes.cardHomeColor),
                               child: Row(
                                 children: [
@@ -406,10 +417,13 @@ class _HomePageState extends State<HomePage> {
                                       flex: 1,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 20.0, top: 10, bottom: 10,right: 15),
+                                            left: 20.0,
+                                            top: 10,
+                                            bottom: 10,
+                                            right: 15),
                                         child: Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               textAlign: TextAlign.left,
@@ -420,31 +434,38 @@ class _HomePageState extends State<HomePage> {
                                             ),
                                             Text(
                                               textAlign: TextAlign.left,
-                                              'To make the roads of the state pothole free through a GIS-based application for lodging road related complaints by Citizens'.tr,
+                                              'To make the roads of the state pothole free through a GIS-based application for lodging road related complaints by Citizens'
+                                                  .tr,
                                               style: styleW400S20.copyWith(
                                                   fontSize: 12,
                                                   color: ColorRes.white,
-                                              height: 1.2),
+                                                  height: 1.2),
                                             ),
                                             appSizedBox(height: 10),
                                             Container(
                                               height: 35,
                                               width: 125,
                                               decoration: BoxDecoration(
-                                                  color: ColorRes.cardButtonColor,
-                                                borderRadius: BorderRadius.all(Radius.circular(4))
-                                              ),
+                                                  color:
+                                                      ColorRes.cardButtonColor,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(4))),
                                               child: Align(
                                                 alignment: Alignment.center,
                                                 child: Padding(
                                                   padding:
-                                                  const EdgeInsets.all(
-                                                      3.0),
+                                                      const EdgeInsets.all(3.0),
                                                   child: Text(
-                                                    textAlign:
-                                                    TextAlign.center,
+                                                    textAlign: TextAlign.center,
                                                     'Register Complaint'.tr,
-                                                    style: styleW400S20.copyWith(fontSize: 12, color: ColorRes.white,height: 1,wordSpacing: 0.1),
+                                                    style:
+                                                        styleW400S20.copyWith(
+                                                            fontSize: 12,
+                                                            color:
+                                                                ColorRes.white,
+                                                            height: 1,
+                                                            wordSpacing: 0.1),
                                                   ),
                                                 ),
                                               ),
@@ -467,16 +488,15 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-
-
                         Padding(
-                          padding: const EdgeInsets.only(right: 10,left: 10,bottom: 10),
+                          padding: const EdgeInsets.only(
+                              right: 10, left: 10, bottom: 10),
                           child: Card(
                             elevation: 5.0,
                             child: Container(
                               decoration: BoxDecoration(
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                      BorderRadius.all(Radius.circular(10)),
                                   color: ColorRes.cardAyushmanColor),
                               child: Row(
                                 children: [
@@ -484,10 +504,13 @@ class _HomePageState extends State<HomePage> {
                                       flex: 1,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 10.0, top: 10, bottom: 10,right: 15),
+                                            left: 10.0,
+                                            top: 10,
+                                            bottom: 10,
+                                            right: 15),
                                         child: Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               textAlign: TextAlign.left,
@@ -499,7 +522,8 @@ class _HomePageState extends State<HomePage> {
                                             appSizedBox(height: 5),
                                             Text(
                                               textAlign: TextAlign.left,
-                                              'Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)'.tr,
+                                              'Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)'
+                                                  .tr,
                                               style: styleW400S20.copyWith(
                                                   fontSize: 12,
                                                   color: ColorRes.white,
@@ -509,24 +533,41 @@ class _HomePageState extends State<HomePage> {
                                             Row(
                                               children: [
                                                 Expanded(
-                                                  flex:1,
-                                                  child: Container(
-                                                    height: 35,
-                                                    decoration: BoxDecoration(
-                                                        color: ColorRes.white,
-                                                        borderRadius: BorderRadius.all(Radius.circular(4))
-                                                    ),
-                                                    child: Align(
-                                                      alignment: Alignment.center,
-                                                      child: Padding(
-                                                        padding:
-                                                        const EdgeInsets.all(
-                                                            3.0),
-                                                        child: Text(
-                                                          textAlign:
-                                                          TextAlign.center,
-                                                          'Aayushman Card'.tr,
-                                                          style: styleW400S20.copyWith(fontSize: 11, color: ColorRes.cardAyushmanTextColor,height: 1,wordSpacing: 0.1),
+                                                  flex: 1,
+                                                  child: InkWell(
+                                                    onTap: (){
+                                                      Get.to(() => WebViewScreen(serviceName: 'Aayushman Card'.tr,
+                                                        serviceUrl: "https://beneficiary.nha.gov.in/",
+                                                      ));
+                                                    },
+                                                    child: Container(
+                                                      height: 35,
+                                                      decoration: BoxDecoration(
+                                                          color: ColorRes.white,
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius.circular(
+                                                                      4))),
+                                                      child: Align(
+                                                        alignment:
+                                                            Alignment.center,
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(3.0),
+                                                          child: Text(
+                                                            textAlign:
+                                                                TextAlign.center,
+                                                            'Aayushman Card'.tr,
+                                                            style: styleW400S20
+                                                                .copyWith(
+                                                                    fontSize: 11,
+                                                                    color: ColorRes
+                                                                        .cardAyushmanTextColor,
+                                                                    height: 1,
+                                                                    wordSpacing:
+                                                                        0.1),
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -539,19 +580,29 @@ class _HomePageState extends State<HomePage> {
                                                     width: 60,
                                                     decoration: BoxDecoration(
                                                         color: ColorRes.white,
-                                                        borderRadius: BorderRadius.all(Radius.circular(4))
-                                                    ),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    4))),
                                                     child: Align(
-                                                      alignment: Alignment.center,
+                                                      alignment:
+                                                          Alignment.center,
                                                       child: Padding(
                                                         padding:
-                                                        const EdgeInsets.all(
-                                                            3.0),
+                                                            const EdgeInsets
+                                                                .all(3.0),
                                                         child: Text(
                                                           textAlign:
-                                                          TextAlign.center,
+                                                              TextAlign.center,
                                                           'Chirayu'.tr,
-                                                          style: styleW400S20.copyWith(fontSize: 12, color: ColorRes.cardAyushmanTextColor,height: 1,wordSpacing: 0.1),
+                                                          style: styleW400S20
+                                                              .copyWith(
+                                                                  fontSize: 12,
+                                                                  color: ColorRes
+                                                                      .cardAyushmanTextColor,
+                                                                  height: 1,
+                                                                  wordSpacing:
+                                                                      0.1),
                                                         ),
                                                       ),
                                                     ),
@@ -577,16 +628,16 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-
                         Padding(
-                          padding: const EdgeInsets.only(right: 10,left: 10,bottom: 10),
+                          padding: const EdgeInsets.only(
+                              right: 10, left: 10, bottom: 10),
                           child: Card(
                             elevation: 5.0,
                             child: Container(
                               decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                                  color: ColorRes.cardAyushmanColor,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                color: ColorRes.cardAyushmanColor,
                                 gradient: LinearGradient(
                                     colors: [
                                       ColorRes.gradientCardStartColor,
@@ -594,10 +645,8 @@ class _HomePageState extends State<HomePage> {
                                       ColorRes.gradientCardEndColor
                                     ],
                                     begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight
-                                ),
+                                    end: Alignment.centerRight),
                               ),
-
                               child: Row(
                                 children: [
                                   Container(
@@ -614,10 +663,13 @@ class _HomePageState extends State<HomePage> {
                                       flex: 1,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 10.0, top: 10, bottom: 10,right: 15),
+                                            left: 10.0,
+                                            top: 10,
+                                            bottom: 10,
+                                            right: 15),
                                         child: Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             appSizedBox(height: 10),
                                             Text(
@@ -630,7 +682,8 @@ class _HomePageState extends State<HomePage> {
                                             appSizedBox(height: 5),
                                             Text(
                                               textAlign: TextAlign.left,
-                                              'list_of_documents_downloaded_on_jansahayak'.tr,
+                                              'list_of_documents_downloaded_on_jansahayak'
+                                                  .tr,
                                               style: styleW400S20.copyWith(
                                                   fontSize: 12,
                                                   color: ColorRes.white,
@@ -640,13 +693,11 @@ class _HomePageState extends State<HomePage> {
                                           ],
                                         ),
                                       )),
-
                                 ],
                               ),
                             ),
                           ),
                         ),
-
                         appSizedBox(height: 10),
                         Text(
                           textAlign: TextAlign.left,
@@ -656,22 +707,19 @@ class _HomePageState extends State<HomePage> {
                               height: 1,
                               color: ColorRes.appPrimaryDarkColor),
                         ),
-
-
                         appSizedBox(height: 10),
-
                         Container(
-                          margin: EdgeInsets.only(left: 50,right: 50),
+                          margin: EdgeInsets.only(left: 50, right: 50),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Expanded(
                                 flex: 1,
-                                  child: Image.asset(
-                                    AssetRes.facebookIcon,
-                                    width: 50,
-                                    height: 50,
-                                  ),
+                                child: Image.asset(
+                                  AssetRes.facebookIcon,
+                                  width: 50,
+                                  height: 50,
+                                ),
                               ),
                               Expanded(
                                 flex: 1,
@@ -697,14 +745,10 @@ class _HomePageState extends State<HomePage> {
                                   height: 50,
                                 ),
                               ),
-
                             ],
                           ),
                         ),
-
                         appSizedBox(height: 20),
-
-
                       ],
                     ),
                   ),
@@ -714,9 +758,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getBeneficiaryServices() {
-
-
-    if (controller.data!=null && !controller.data!.data!.isEmpty && controller.data!.data! != null) {
+    if (controller.data != null &&
+        !controller.data!.data!.isEmpty &&
+        controller.data!.data! != null) {
       if (controller.data!.data![1].oCategory != null) {
         return Expanded(
           flex: 1,
@@ -730,118 +774,126 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return index != controller.data!.data![1].oCategory!.length
                       ? Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 120,
-                    width: 100,
-                    child: Card(
-                      elevation: 5,
-                      child: InkWell(
-                        onTap: (){
-                          Get.to(() => DepartmentScreen(mainId: controller.data!.data![1].oCategory![index].id!,serviceName: controller.data!.data![1].oCategory![index].category!,));
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                            color: ColorRes.white,
-                            gradient: LinearGradient(
-                                colors: [
-                                  ColorRes.gradientStartColor,
-                                  ColorRes.gradientCentertColor,
-                                  ColorRes.gradientEndtColor
-                                ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter
+                          margin: EdgeInsets.only(right: 5),
+                          height: 120,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            child: InkWell(
+                              onTap: () {
+                                Get.to(() => DepartmentScreen(
+                                      mainId: controller
+                                          .data!.data![1].oCategory![index].id!,
+                                      serviceName: controller.data!.data![1]
+                                          .oCategory![index].category!,
+                                    ));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5)),
+                                  color: ColorRes.white,
+                                  gradient: LinearGradient(
+                                      colors: [
+                                        ColorRes.gradientStartColor,
+                                        ColorRes.gradientCentertColor,
+                                        ColorRes.gradientEndtColor
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    FadeInImage(
+                                      image: NetworkImage(controller.data!
+                                          .data![1].oCategory![index].imgUrl!),
+                                      placeholder:
+                                          AssetImage(AssetRes.launchIcon),
+                                      imageErrorBuilder:
+                                          (context, error, stackTrace) {
+                                        return Image.asset(
+                                          AssetRes.launchIcon,
+                                          width: 60,
+                                          height: 60,
+                                        );
+                                      },
+                                      width: 60,
+                                      height: 70,
+                                    ),
+                                    appSizedBox(height: 5),
+                                    Text(
+                                      maxLines: 2,
+                                      textAlign: TextAlign.center,
+                                      PrefService.getString(
+                                                  PrefKeys.selectedLanguage) ==
+                                              "en"
+                                          ? controller.data!.data![1]
+                                              .oCategory![index].category!
+                                          : controller.data!.data![1]
+                                              .oCategory![index].categoryHindi!,
+                                      style: styleW400S14.copyWith(
+                                          fontSize: 12,
+                                          color: ColorRes.appPrimaryColor,
+                                          height: 1),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
-
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              FadeInImage(
-                                image: NetworkImage(controller
-                                    .data!.data![1].oCategory![index].imgUrl!),
-                                placeholder: AssetImage(AssetRes.launchIcon),
-                                imageErrorBuilder:
-                                    (context, error, stackTrace) {
-                                  return Image.asset(
-                                    AssetRes.launchIcon,
-                                    width: 60,
-                                    height: 60,);
-                                },
-                                width: 60,
-                                height: 70,
+                        )
+                      : Container(
+                          margin: EdgeInsets.only(right: 5),
+                          height: 120,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            child: InkWell(
+                              onTap: () {
+                                Get.to(() => ServiceAppbarScreen());
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5)),
+                                  color: ColorRes.white,
+                                  gradient: LinearGradient(
+                                      colors: [
+                                        ColorRes.gradientFullStarttColor,
+                                        ColorRes.appPrimaryColor,
+                                        ColorRes.appPrimaryColor
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      AssetRes.window_icon,
+                                      width: 40,
+                                      height: 40,
+                                    ),
+                                    appSizedBox(height: 15),
+                                    Text(
+                                      maxLines: 2,
+                                      textAlign: TextAlign.center,
+                                      "Full List",
+                                      style: styleW600S14.copyWith(
+                                          fontSize: 12,
+                                          color: ColorRes.white,
+                                          height: 1,
+                                          wordSpacing: .01),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              appSizedBox(height: 5),
-                              Text(
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                                PrefService.getString(PrefKeys.selectedLanguage) =="en" ?
-                                controller.data!.data![1].oCategory![index].category! :
-                                controller.data!.data![1].oCategory![index].categoryHindi!,
-                                style: styleW400S14.copyWith(
-                                    fontSize: 12,
-                                    color: ColorRes.appPrimaryColor,
-                                    height: 1),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                      :
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 120,
-                    width: 100,
-                    child: Card(
-                      elevation: 5,
-                      child: InkWell(
-                        onTap: (){
-                          Get.to(() => ServiceAppbarScreen());
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                            color: ColorRes.white,
-                            gradient: LinearGradient(
-                                colors: [
-                                  ColorRes.gradientFullStarttColor,
-                                  ColorRes.appPrimaryColor,
-                                  ColorRes.appPrimaryColor
-                                ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter
                             ),
                           ),
-
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                AssetRes.window_icon,
-                                width: 40,
-                                height: 40,
-                              ),
-                              appSizedBox(height: 15),
-                              Text(
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                                "Full List",
-                                style: styleW600S14.copyWith(
-                                    fontSize: 12,
-                                    color: ColorRes.white,
-                                    height: 1,
-                                    wordSpacing: .01),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
+                        );
                 }),
           ),
         );
@@ -854,13 +906,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getGovertmentServices() {
-    if (controller.data!=null && !controller.data!.data!.isEmpty && controller.data!.data! != null) {
-
+    if (controller.data != null &&
+        !controller.data!.data!.isEmpty &&
+        controller.data!.data! != null) {
       if (controller.data!.data![2].odt != null) {
-
-          controller.departmentName=controller.data!.data![2].menuName!;
-
-
+        controller.departmentName = controller.data!.data![2].menuName!;
 
         return Padding(
           padding: const EdgeInsets.only(left: 10),
@@ -874,128 +924,150 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return index != controller.data!.data![2].odt!.length
                       ? Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 120,
-                    width: 100,
-                    child: Card(
-                      elevation: 5,
-                      child: InkWell(
-                        onTap: (){
-                          String deptName=PrefService.getString(PrefKeys.selectedLanguage) =="en" ?controller.data!.data![2].odt![index].department! :controller.data!.data![2].odt![index].hDepName!;
-                          Get.to(() => SubServiceScreen(mainId: "1",departmentId: controller.data!.data![2].odt![index].id!.toString(),departmentName: deptName,));
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                            color: ColorRes.white,
-                            gradient: LinearGradient(
-                                colors: [
-                                  ColorRes.gradientStartColor,
-                                  ColorRes.gradientCentertColor,
-                                  ColorRes.gradientEndtColor
-                                ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter
-                            ),
-                          ),
-
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 50,
-                                width: 50,
+                          margin: EdgeInsets.only(right: 5),
+                          height: 120,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            child: InkWell(
+                              onTap: () {
+                                String deptName = PrefService.getString(
+                                            PrefKeys.selectedLanguage) ==
+                                        "en"
+                                    ? controller
+                                        .data!.data![2].odt![index].department!
+                                    : controller
+                                        .data!.data![2].odt![index].hDepName!;
+                                Get.to(() => SubServiceScreen(
+                                      mainId: "1",
+                                      departmentId: controller
+                                          .data!.data![2].odt![index].id!
+                                          .toString(),
+                                      departmentName: deptName,
+                                    ));
+                              },
+                              child: Container(
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(50)),
-                                  color: ColorRes.appPrimaryDarkColor
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5)),
+                                  color: ColorRes.white,
+                                  gradient: LinearGradient(
+                                      colors: [
+                                        ColorRes.gradientStartColor,
+                                        ColorRes.gradientCentertColor,
+                                        ColorRes.gradientEndtColor
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter),
                                 ),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    textAlign: TextAlign.center,
-                                    PrefService.getString(PrefKeys.selectedLanguage) =="en" ?
-                                    controller.data!.data![2].odt![index].department![0].toUpperCase() :
-                                    controller.data!.data![2].odt![index].hDepName![0].toUpperCase(),
-                                    style: styleW600S15.copyWith(
-                                        fontSize: 18,
-                                        color: ColorRes.white,
-                                        height: 1),
-                                  ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(50)),
+                                          color: ColorRes.appPrimaryDarkColor),
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          textAlign: TextAlign.center,
+                                          PrefService.getString(PrefKeys
+                                                      .selectedLanguage) ==
+                                                  "en"
+                                              ? controller.data!.data![2]
+                                                  .odt![index].department![0]
+                                                  .toUpperCase()
+                                              : controller.data!.data![2]
+                                                  .odt![index].hDepName![0]
+                                                  .toUpperCase(),
+                                          style: styleW600S15.copyWith(
+                                              fontSize: 18,
+                                              color: ColorRes.white,
+                                              height: 1),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        maxLines: 2,
+                                        textAlign: TextAlign.center,
+                                        PrefService.getString(PrefKeys
+                                                    .selectedLanguage) ==
+                                                "en"
+                                            ? controller.data!.data![2]
+                                                .odt![index].department!
+                                            : controller.data!.data![2]
+                                                .odt![index].hDepName!,
+                                        style: styleW400S14.copyWith(
+                                            fontSize: 12,
+                                            color: ColorRes.appPrimaryColor,
+                                            height: 1),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  maxLines: 2,
-                                  textAlign: TextAlign.center,
-                                  PrefService.getString(PrefKeys.selectedLanguage) =="en" ?
-                                  controller.data!.data![2].odt![index].department! :
-                                  controller.data!.data![2].odt![index].hDepName!,
-                                  style: styleW400S14.copyWith(
-                                      fontSize: 12,
-                                      color: ColorRes.appPrimaryColor,
-                                      height: 1),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                      :
-                  Container(
-                    margin: EdgeInsets.only(right: 5),
-                    height: 120,
-                    width: 100,
-                    child: Card(
-                      elevation: 5,
-                      child: InkWell(
-                        onTap: (){
-                          Get.to(() => DepartmentScreen(mainId: "1",serviceName: "Departments",));
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
-                            color: ColorRes.white,
-                            gradient: LinearGradient(
-                                colors: [
-                                  ColorRes.gradientFullStarttColor,
-                                  ColorRes.appPrimaryColor,
-                                  ColorRes.appPrimaryColor
-                                ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter
                             ),
                           ),
-
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                AssetRes.window_icon,
-                                width: 40,
-                                height: 40,
+                        )
+                      : Container(
+                          margin: EdgeInsets.only(right: 5),
+                          height: 120,
+                          width: 100,
+                          child: Card(
+                            elevation: 5,
+                            child: InkWell(
+                              onTap: () {
+                                Get.to(() => DepartmentScreen(
+                                      mainId: "1",
+                                      serviceName: "Departments",
+                                    ));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5)),
+                                  color: ColorRes.white,
+                                  gradient: LinearGradient(
+                                      colors: [
+                                        ColorRes.gradientFullStarttColor,
+                                        ColorRes.appPrimaryColor,
+                                        ColorRes.appPrimaryColor
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      AssetRes.window_icon,
+                                      width: 40,
+                                      height: 40,
+                                    ),
+                                    appSizedBox(height: 15),
+                                    Text(
+                                      maxLines: 2,
+                                      textAlign: TextAlign.center,
+                                      "Full List",
+                                      style: styleW600S14.copyWith(
+                                          fontSize: 12,
+                                          color: ColorRes.white,
+                                          height: 1,
+                                          wordSpacing: .01),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              appSizedBox(height: 15),
-                              Text(
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                                "Full List",
-                                style: styleW600S14.copyWith(
-                                    fontSize: 12,
-                                    color: ColorRes.white,
-                                    height: 1,
-                                    wordSpacing: .01),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                  );
+                        );
                 }),
           ),
         );
@@ -1008,10 +1080,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getProActiveServices() {
-    if (controller.data!=null && !controller.data!.data!.isEmpty && controller.data!.data! != null) {
-
+    if (controller.data != null &&
+        !controller.data!.data!.isEmpty &&
+        controller.data!.data! != null) {
       if (controller.data!.data![3].oSub != null) {
-        controller.proActiveServiceName=controller.data!.data![3].menuName!;
+        controller.proActiveServiceName = controller.data!.data![3].menuName!;
 
         return Padding(
           padding: const EdgeInsets.only(left: 10),
@@ -1020,7 +1093,7 @@ class _HomePageState extends State<HomePage> {
             margin: EdgeInsets.only(right: 5),
             child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: controller.data!.data![3].oSub!.length ,
+                itemCount: controller.data!.data![3].oSub!.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Container(
@@ -1030,23 +1103,43 @@ class _HomePageState extends State<HomePage> {
                     child: Card(
                       elevation: 5,
                       child: InkWell(
-                        onTap: (){
-
-                          if(PrefService.getString(PrefKeys.USER_ROLE)=="P"){
-                            print("iD ${controller.data!.data![3].oSub![index].id}");
-                            if(controller.data!.data![3].oSub![index].id=="5"){
-                            }else if(controller.data!.data![3].oSub![index].id=="6"){
-                              String finalURL="https://dduapsy.hppa.in/get-family-id/?family_id="+PrefService.getString(PrefKeys.FamilyID)+"&scheme=strayanimal";
-                              Get.to(() => WebViewScreen(serviceName: 'DAYALU Yojana'.tr,serviceUrl: finalURL,));
-                            }else if(controller.data!.data![3].oSub![index].id=="7"){
-                            }else if(controller.data!.data![3].oSub![index].id=="8"){
-                            }else if(controller.data!.data![3].oSub![index].id=="9"){
-                            }else if(controller.data!.data![3].oSub![index].id=="10"){
-                            }else if(controller.data!.data![3].oSub![index].id=="11"){
-                            }else if(controller.data!.data![3].oSub![index].subMenu=="Housing for All"){
-                            }
-                          }else{
-
+                        onTap: () {
+                          if (PrefService.getString(PrefKeys.USER_ROLE) ==
+                              "P") {
+                            print(
+                                "iD ${controller.data!.data![3].oSub![index].id}");
+                            if (controller.data!.data![3].oSub![index].id ==
+                                "5") {
+                            } else if (controller
+                                    .data!.data![3].oSub![index].id ==
+                                "6") {
+                              String finalURL =
+                                  "https://dduapsy.hppa.in/get-family-id/?family_id=" +
+                                      PrefService.getString(PrefKeys.FamilyID) +
+                                      "&scheme=strayanimal";
+                              Get.to(() => WebViewScreen(
+                                    serviceName: 'DAYALU Yojana'.tr,
+                                    serviceUrl: finalURL,
+                                  ));
+                            } else if (controller
+                                    .data!.data![3].oSub![index].id ==
+                                "7") {
+                            } else if (controller
+                                    .data!.data![3].oSub![index].id ==
+                                "8") {
+                            } else if (controller
+                                    .data!.data![3].oSub![index].id ==
+                                "9") {
+                            } else if (controller
+                                    .data!.data![3].oSub![index].id ==
+                                "10") {
+                            } else if (controller
+                                    .data!.data![3].oSub![index].id ==
+                                "11") {
+                            } else if (controller
+                                    .data!.data![3].oSub![index].subMenu ==
+                                "Housing for All") {}
+                          } else {
                             Get.to(() => CommonFamilyNotVerfiedScreen());
                           }
                         },
@@ -1061,10 +1154,8 @@ class _HomePageState extends State<HomePage> {
                                   ColorRes.gradientEndtColor
                                 ],
                                 begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter
-                            ),
+                                end: Alignment.topCenter),
                           ),
-
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -1078,7 +1169,8 @@ class _HomePageState extends State<HomePage> {
                                   return Image.asset(
                                     AssetRes.launchIcon,
                                     width: 60,
-                                    height: 60,);
+                                    height: 60,
+                                  );
                                 },
                                 width: 60,
                                 height: 70,
@@ -1088,7 +1180,8 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   maxLines: 2,
                                   textAlign: TextAlign.center,
-                                  controller.data!.data![3].oSub![index].subMenu!,
+                                  controller
+                                      .data!.data![3].oSub![index].subMenu!,
                                   style: styleW400S14.copyWith(
                                       fontSize: 12,
                                       color: ColorRes.black,
@@ -1101,7 +1194,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   );
-
                 }),
           ),
         );
@@ -1114,10 +1206,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getProgramServices() {
-    if (controller.data!=null && !controller.data!.data!.isEmpty && controller.data!.data! != null) {
-
+    if (controller.data != null &&
+        !controller.data!.data!.isEmpty &&
+        controller.data!.data! != null) {
       if (controller.data!.data![0].oSub != null) {
-        controller.programName=controller.data!.data![0].menuName!;
+        controller.programName = controller.data!.data![0].menuName!;
 
         return Padding(
           padding: const EdgeInsets.only(left: 10),
@@ -1126,7 +1219,7 @@ class _HomePageState extends State<HomePage> {
             margin: EdgeInsets.only(right: 5),
             child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: controller.data!.data![0].oSub!.length ,
+                itemCount: controller.data!.data![0].oSub!.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Container(
@@ -1135,57 +1228,73 @@ class _HomePageState extends State<HomePage> {
                     width: 100,
                     child: Card(
                       elevation: 5,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                          color: ColorRes.white,
-                          gradient: LinearGradient(
-                              colors: [
-                                ColorRes.gradientStartColor,
-                                ColorRes.gradientCentertColor,
-                                ColorRes.gradientEndtColor
-                              ],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter
-                          ),
-                        ),
+                      child: InkWell(
+                        onTap: () {
+                          if (PrefService.getString(PrefKeys.USER_ROLE) == "P") {
 
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FadeInImage(
-                              image: NetworkImage(controller
-                                  .data!.data![0].oSub![index].imgUrl!),
-                              placeholder: AssetImage(AssetRes.launchIcon),
-                              imageErrorBuilder:
-                                  (context, error, stackTrace) {
-                                return Image.asset(
-                                  AssetRes.launchIcon,
-                                  width: 60,
-                                  height: 60,);
-                              },
-                              width: 60,
-                              height: 70,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                                controller.data!.data![0].oSub![index].subMenu!,
-                                style: styleW400S14.copyWith(
-                                    fontSize: 12,
-                                    color: ColorRes.black,
-                                    height: 1),
+                            if(controller.data!.data![0].oSub![index].subMenu=="HKRNL")
+                            {
+
+                              String finalURL="${controller.data!.data![0].oSub![index].url!}/${PrefService.getString(PrefKeys.FamilyID)}?FM=${PrefService.getString(PrefKeys.FamilyID)}&MM=${PrefService.getString(PrefKeys.FamilyMemberID)}&MB=1234";
+
+                              makePhoneCall(finalURL);
+
+                            }
+                          }else{
+                            Get.to(() => CommonFamilyNotVerfiedScreen());
+                          }
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                            color: ColorRes.white,
+                            gradient: LinearGradient(
+                                colors: [
+                                  ColorRes.gradientStartColor,
+                                  ColorRes.gradientCentertColor,
+                                  ColorRes.gradientEndtColor
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FadeInImage(
+                                image: NetworkImage(controller
+                                    .data!.data![0].oSub![index].imgUrl!),
+                                placeholder: AssetImage(AssetRes.launchIcon),
+                                imageErrorBuilder:
+                                    (context, error, stackTrace) {
+                                  return Image.asset(
+                                    AssetRes.launchIcon,
+                                    width: 60,
+                                    height: 60,
+                                  );
+                                },
+                                width: 60,
+                                height: 70,
                               ),
-                            ),
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  maxLines: 2,
+                                  textAlign: TextAlign.center,
+                                  controller
+                                      .data!.data![0].oSub![index].subMenu!,
+                                  style: styleW400S14.copyWith(
+                                      fontSize: 12,
+                                      color: ColorRes.black,
+                                      height: 1),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   );
-
                 }),
           ),
         );
@@ -1197,4 +1306,3 @@ class _HomePageState extends State<HomePage> {
     }
   }
 }
-

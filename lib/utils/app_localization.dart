@@ -86,6 +86,7 @@ class AppLocalization extends Translations {
     "family_id_aadhar": "Please enter your Family ID*",
     "skip": "SKIP",
     "farmer_record": "Farmer Record - eKharid",
+    "payment_record": "Payment Details - eKharid",
     "find_record": "Find Record",
     "commodity_name": "Commodity name",
     "produce_recived_date": "Produce Received Date",
@@ -124,7 +125,15 @@ class AppLocalization extends Translations {
     "payable_amount": "Payable Amount",
     "generated_file_no": "File No.",
     "view_payment_details": "View Payment Details",
-    "download_jform": "Download JFormं",
+    "download_jform": "Download JForm",
+    "payment_details": "Payment Details",
+    "created_date": "Created Date",
+    "payment_initiating_bank": "PAYMENT INITIATING BANK",
+    "transaction_date": "TRANSACTION DATE",
+    "bank_ref_no": "BANK REF NO.",
+    "payment_status": "PAYMENT STATUS",
+    "file_type": "FILE TYPE",
+    "mfmb_title": "MFMB Members Crop Detail",
 
 
 
@@ -229,6 +238,7 @@ class AppLocalization extends Translations {
     "family_id_aadhar": "कृपया अपनी फैमिली आईडी / आधार कार्ड दर्ज करें*",
     "skip": "छोड़ें",
     "farmer_record": "किसान रिकॉर्ड - eKharid",
+    "payment_record": "भुगतान विवरण- eKharid",
     "find_record": "रिकॉर्ड खोजें",
     "commodity_name": "फसल का नाम",
     "produce_recived_date": "उत्पादन प्राप्त तिथि",
@@ -269,6 +279,14 @@ class AppLocalization extends Translations {
     "generated_file_no": "दस्तावेज संख्या",
     "view_payment_details": "भुगतान विवरण देखें",
     "download_jform": "जेफॉर्म डाउनलोड करें",
+    "payment_details": "भुगतान विवरण",
+    "created_date": "सृजित दिनांक",
+    "payment_initiating_bank": "भुगतान आरंभ करने वाला बैंक",
+    "transaction_date": "कार्यवाही की तिथि",
+    "bank_ref_no": "बैंक संदर्भ संख्या.",
+    "payment_status": "भुगतान की स्थिति",
+    "file_type": "फाइल का प्रकार",
+    "mfmb_title": "एम.एफ.एम.बी सदस्य फसल विवरण",
 
 
 

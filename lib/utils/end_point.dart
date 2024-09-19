@@ -32,6 +32,8 @@ class EndPoints {
   static const getTokenFromJava = '${URL_BASE_SARAL_TOKEN_JAVA}getUrl';
   static const getKMSYears = '${URL_BASE_EK}GetSessionMaster?SessionID=7';
   static const getFamilyRecords = '${URL_BASE_EK}GetFarmerDetailsByPPPID';
+  static const getFarmerPaymentDetail = '${URL_BASE_EK}GetPaymentDetails';
+  static const getMFMBCropData = '${URL_BASE}Service/MFMBCropData/';
 
 
   static const verifyOTP = '${api}api/validateotp';
