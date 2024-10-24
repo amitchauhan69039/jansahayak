@@ -23,6 +23,16 @@ class PrefKeys {
   static const INIT_F = 'INIT_F';
   static const MEMBER_POSITION = 'MEMBER_POSITION';
 
+  static const JAN_DOC_PATH ="JANSAHAYAK_DOCUMENTS";
+  static const DOC_SMAVITVA ="gov-hry-pid-sm-";
+  static const DOC_RATION="gov-hry-rc-";
+  static const DOC_FAMILY_ID ="gov-hry-ppp-";
+  static const DOC_DIGI="in-gov-dl-";
+  static const DOC_SARAL_CASTE="gov-hry-saral-caste-";
+  static const DOC_SARAL_INCOME="gov-hry-saral-income-";
+  static const DOC_SARAL_DOMICLE="gov-hry-saral-Domicle-";
+
+
 
   static const GUEST_ID = 'GUEST_ID';
   static const GUEST_EMAIL = 'GUEST_EMAIL';
@@ -31,6 +41,13 @@ class PrefKeys {
   static const GUEST_DISTRICT = 'GUEST_DISTRICT';
   static const GUEST_GENDER = 'GUEST_GENDER';
   static const GUEST_DOB = 'GUEST_DOB';
+
+  static const HARPATH_NAME="HARPATH_NAME";
+  static const HARPATH_MOBILE="HARPATH_MOBILE";
+
+  static const HARPATH_ACCESS_TOKEN="HARPATH_ACCESS_TOKEN";
+  static const HARPATH_CITIZEN_ID="HARPATH_CITIZEN_ID";
+  static const HARPATH_API_KEY="HARPATH_API_KEY";
 
 }
 

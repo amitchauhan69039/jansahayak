@@ -34,6 +34,23 @@ class EndPoints {
   static const getFamilyRecords = '${URL_BASE_EK}GetFarmerDetailsByPPPID';
   static const getFarmerPaymentDetail = '${URL_BASE_EK}GetPaymentDetails';
   static const getMFMBCropData = '${URL_BASE}Service/MFMBCropData/';
+  static const getMarriageCertificateJava = '${URL_BASE_EK}java/api/janSahayak/getMarriageData';
+  static const getPIDData = '${URL_BASE}Service/ViewDoc/';
+  static const getRationCardData = '${URL_BASE}Service/GetRationCardData/';
+  static const getCastCiertificateData = '${URL_BASE}Service/GetCerDataRecievedFromSaral/';
+  static const getALLHospitalBasedOnKM = '${URL_BASE}Service/GetALLHospitalBasedonKM/';
+  static const getALLDistrict = '${URL_BASE}Service/GetALLDistrict';
+  static const getALLSpecialities = '${URL_BASE}Service/GetALLSpecialities';
+  static const getHospitalTypeMaster = '${URL_BASE}Service/GetHospitalTypeMaster';
+  static const getALLHospitalBasedOnDistrictAndSpec = '${URL_BASE}Service/GetALLHospitalBasedonDistrictAndSpec/';
+  static const getNewsDPRO = '${URL_BASE_DPRO}api.php';
+  static const getNewsDetails = '${URL_BASE_DPRO}get_news_detail.php';
+  static const submitRatings = '${URL_BASE}Service/Insert_Appfeedabck_Request/';
+  static const getDownload = '${URL_BASE}Service/Download';
+  static const getMapService = '${URL_BASE_HARPATH}mapService';
+  static const getHarPathOTP = '${URL_BASE_HARPATH}getOTP';
+  static const registerHarPathUser = '${URL_BASE_HARPATH}registerUser';
+  static const getRoadAttributes = '${URL_BASE_HARPATH}getRoadAttributes';
 
 
   static const verifyOTP = '${api}api/validateotp';

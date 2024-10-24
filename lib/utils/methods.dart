@@ -4,6 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:JanSahayak/jan_sahayak.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -177,5 +178,70 @@ Future<void> makePhoneCall(String url) async {
     throw 'Could not launch $url';
   }
 }
+
+Future<String> createFolderInAppDocDir() async {
+
+//Get this App Document Directory
+final Directory _appDocDir = await getApplicationDocumentsDirectory();
+//App Document Directory + folder name
+final Directory _appDocDirFolder =  Directory('${_appDocDir.path}/${PrefKeys.JAN_DOC_PATH}/');
+
+if(await _appDocDirFolder.exists()){ //if folder already exists return path
+return _appDocDirFolder.path;
+}else{//if folder not exists create folder and then return its path
+final Directory _appDocDirNewFolder=await _appDocDirFolder.create(recursive: true);
+return _appDocDirNewFolder.path;
+}
+}
+
+Future<String> createFolder() async {
+  requestPermission(Permission.manageExternalStorage);
+  requestPermission(Permission.storage);
+
+
+  if (Platform.isAndroid ? !await requestPermission(Permission.accessMediaLocation) && !await requestPermission(Permission.manageExternalStorage) : !await requestPermission(Permission.storage)){
+    PermissionStatus permissionResult = await Permission.storage.request();
+    print("permissionResult ${permissionResult}");
+    if (permissionResult == PermissionStatus.granted) {
+
+    }
+  }
+
+  Directory("/storage/emulated/0/${PrefKeys.JAN_DOC_PATH}")
+      .create()
+  // The created directory is returned as a Future.
+      .then((Directory directory) {
+    print("Directoer ${directory.path}");
+  });
+
+  final path = Directory("/storage/emulated/0/${PrefKeys.JAN_DOC_PATH}");
+  var status = await Permission.storage.status;
+  if (!status.isGranted) {
+    await Permission.storage.request();
+  }
+  if ((await path.exists())) {
+    return path.path;
+  } else {
+    path.create();
+    return path.path;
+  }
+}
+
+Future<bool> requestPermission(Permission permission) async {
+
+  var result = await permission.request();
+  print("requestPermission ${permission} $result");
+  if (await permission.isGranted) {
+    return true;
+  } else {
+    var result = await permission.request();
+    print('result $result');
+    if (result == PermissionStatus.granted) {
+      return true;
+    }
+  }
+  return false;
+}
+
 
 

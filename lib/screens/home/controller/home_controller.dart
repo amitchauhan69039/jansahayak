@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:JanSahayak/screens/home/api/home_api.dart';
 import 'package:intl/intl.dart';
 import 'package:JanSahayak/jan_sahayak.dart';
@@ -12,6 +14,7 @@ class HomeController extends GetxController {
   String departmentName="";
   String proActiveServiceName="";
   String programName="";
+  bool isFolderExist=false;
 
   @override
   void onInit() {
@@ -19,6 +22,7 @@ class HomeController extends GetxController {
     fromDateController.text = DateFormat('dd/MM/yyyy').format(DateTime.now());
     toDateController.text = DateFormat('dd/MM/yyyy').format(DateTime.now());
     getHomeData();
+    isFolderExists();
   }
 
   selectDate(BuildContext context, TextEditingController controller) async {
@@ -67,4 +71,39 @@ class HomeController extends GetxController {
 
 
   }
+
+  Future<void> isFolderExists() async{
+    final path ="/storage/emulated/0/${PrefKeys.JAN_DOC_PATH}-${PrefService.getString(PrefKeys.FamilyID)}";
+    final checkPathExistence = await Directory(path).exists();
+    print("available or not : $checkPathExistence");
+    Directory dir =await Directory(path);
+    List contents = dir.listSync();
+    for (var fileOrDir in contents) {
+      if (fileOrDir is File) {
+        print(fileOrDir.path);
+      } else if (fileOrDir is Directory) {
+        print(fileOrDir.path);
+      }
+    }
+
+    isFolderExist=checkPathExistence;
+  }
+
+  Future<List<String>> getList() async{
+    List<String> list=[];
+    final path ="/storage/emulated/0/${PrefKeys.JAN_DOC_PATH}-${PrefService.getString(PrefKeys.FamilyID)}";
+    Directory dir =await Directory(path);
+    List contents = dir.listSync();
+    for (var fileOrDir in contents) {
+      if (fileOrDir is File) {
+        list.add(fileOrDir.path);
+        print(fileOrDir.path);
+      } else if (fileOrDir is Directory) {
+        print(fileOrDir.path);
+      }
+    }
+    return list;
+  }
+
+
 }

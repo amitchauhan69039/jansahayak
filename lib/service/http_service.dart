@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:JanSahayak/jan_sahayak.dart';
 
+import '../model/map_service_model.dart';
+
 class HttpService {
 
   static Future<http.Response?> getApi({
@@ -107,10 +109,41 @@ class HttpService {
       debugPrint("Body = $body");
 
       // Set Content-Type header to application/x-www-form-urlencoded
-      header['Content-Type'] = 'application/json';
+      header['Content-Type'] = 'application/x-www-form-urlencoded';
 
       // Encode the body as form data
       final encodedBody = body != null ? body.entries.map((e) => '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}').join('&') : null;
+
+      final response = await http.post(Uri.parse(url), headers: header, body: encodedBody);
+      debugPrint("response = $response");
+      bool isExpired = await isTokenExpire(response);
+      if (!isExpired) {
+        return response;
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+    return null;
+  }
+
+
+  static Future<http.Response?> postHarpathApi({
+    required String url,
+    Map<String, String>? header,
+    MapServiceModel? body,
+    bool isContentType = false,
+  }) async {
+    try {
+      header = header ?? {};
+      debugPrint("Url = $url");
+      debugPrint("Header = $header");
+      debugPrint("Body = $body");
+
+      // Set Content-Type header to application/x-www-form-urlencoded
+      header['Content-Type'] = 'application/x-www-form-urlencoded';
+
+      // Encode the body as form data
+      final encodedBody = json.encode(body);
 
       final response = await http.post(Uri.parse(url), headers: header, body: encodedBody);
       debugPrint("response = $response");

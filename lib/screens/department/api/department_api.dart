@@ -1,7 +1,6 @@
 import 'package:JanSahayak/jan_sahayak.dart';
 
 import '../../../model/department_data_model.dart';
-import '../../../model/saral_service_model.dart';
 
 class DepartmentApi{
 

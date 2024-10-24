@@ -17,7 +17,7 @@ dependencies:
   get: ^4.6.6
 
   # -------------------------- ui --------------------------
-  intl: ^0.18.1
+  intl: ^0.19.0
 
 
 
@@ -38,21 +38,35 @@ dependencies:
   image_crop: ^0.4.1
   image_picker: ^1.0.5
   flutter_image_compress: ^2.1.0
-  path_provider: ^2.1.1
   loading_indicator: ^3.1.1
-  permission_handler: ^11.1.0
+  permission_handler: ^11.3.1
   country_picker: ^2.0.23
   sms_autofill: ^2.3.1
   connectivity_plus: ^6.0.5
   url_launcher: ^6.3.0
   webview_flutter: ^4.8.0
+  flutter_pdfview: ^1.3.3
+  share_plus: ^10.0.2
+  path: ^1.9.0
+  path_provider: ^2.1.4
+  open_file: ^3.5.6
+  carousel_slider: ^5.0.0
+  dots_indicator: ^3.0.0
+  flutter_tags: "^1.0.0-nullsafety.1"
+  flutter_widget_from_html: ^0.15.2
+  scrollable: ^1.0.5
+  flutter_rating_bar: ^4.0.1
+  encrypt: ^5.0.3
+  geolocator: ^13.0.1
+  arcgis_maps:
+    path: ../arcgis_maps_package
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
 

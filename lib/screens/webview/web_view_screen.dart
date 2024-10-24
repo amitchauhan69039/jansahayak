@@ -12,7 +12,6 @@ class WebViewScreen extends StatefulWidget {
 
 class _WebViewScreenState extends State<WebViewScreen> {
   late final WebViewController webViewController;
-  bool isLoading=false;
 
   final WebController controller = Get.put(WebController());
 
@@ -30,13 +29,14 @@ class _WebViewScreenState extends State<WebViewScreen> {
           // Called when a new page starts loading
           onPageStarted: (url) {
             setState(() {
-              isLoading = true; // Show loading indicator when page starts loading
+              print(widget.serviceUrl);
+              controller.loader = true; // Show loading indicator when page starts loading
             });
           },
           // Called when the page finishes loading
           onPageFinished: (url) {
             setState(() {
-              isLoading = false; // Hide loading indicator when page finishes loading
+              controller.loader = false; // Hide loading indicator when page finishes loading
             });
           },
         ),
@@ -57,7 +57,9 @@ class _WebViewScreenState extends State<WebViewScreen> {
           body: GetBuilder<WebController>(
               id: 'web_view',
               builder: (controller) {
-                return WebViewWidget(controller: webViewController);
+                return StackedLoader(
+                    loading: controller.loader,
+                    child: WebViewWidget(controller: webViewController));
               })),
     );
   }

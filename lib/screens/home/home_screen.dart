@@ -13,11 +13,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int _currentIndex = 2;
   final List<Widget> _widgetList = [
-    const Page1(),
+    const NewsListScreen(),
     const ServiceScreen(),
     const HomePage(),
     const Text('Page Four'),
-    const Text('Page Five'),
+    const SettingsScreen(),
   ];
 
 
@@ -312,78 +312,80 @@ class CustomPopupMenu extends StatelessWidget {
   }
 }
 
-signOut(context) {
-  return showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return Dialog(
-          insetPadding: const EdgeInsets.all(15),
-          child: Wrap(
+Future<void>  signOut(BuildContext mContext) async{
+  final alert = AlertDialog(
+      contentPadding: EdgeInsets.zero,
+
+      content: Container(
+        decoration: new BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.all(Radius.circular(10))
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: ColorRes.white,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: ColorRes.greyColor,
-                      spreadRadius: 0,
-                      blurRadius: 4.7,
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('are_you_sure_you_want_to_sign_out'.tr,
-                        style: styleW500S15),
-                    appSizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: Get.back,
-                          child: Container(
-                              alignment: Alignment.center,
-                              width: 70,
-                              height: 35,
-                              // padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 3),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: ColorRes.appRedColor,
-                              ),
-                              child: Text('cancel'.tr,
-                                  style: styleW500S15.copyWith(
-                                      color: ColorRes.white))),
+              Text('are_you_sure_you_want_to_sign_out'.tr,
+                  style: styleW500S15),
+              appSizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: Get.back,
+                    child: Container(
+                        alignment: Alignment.center,
+                        width: 70,
+                        height: 35,
+                        // padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 3),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: ColorRes.appRedColor,
                         ),
-                        appSizedBox(width: 2.5.w),
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            Get.back();
-                            await PrefService.set(PrefKeys.USER_ROLE, "");
-                            Get.offAll(() => const LoginScreen());
-                          },
-                          child: AppButton(
-                              buttonName: 'yes'.tr,
-                              buttonHeight: 35,
-                              buttonWidth: 70,
-                              borderRadius: 5,
-                              textColor: ColorRes.white,
-                              backgroundColor: ColorRes.appPrimaryColor),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
+                        child: Text('cancel'.tr,
+                            style: styleW500S15.copyWith(
+                                color: ColorRes.white))),
+                  ),
+                  appSizedBox(width: 2.5.w),
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      Get.back();
+                      await PrefService.set(PrefKeys.USER_ROLE, "");
+                      Get.offAll(() => const LoginScreen());
+                    },
+                    child: AppButton(
+                        buttonName: 'yes'.tr,
+                        buttonHeight: 35,
+                        buttonWidth: 70,
+                        borderRadius: 5,
+                        textColor: ColorRes.white,
+                        backgroundColor: ColorRes.appPrimaryColor),
+                  ),
+                ],
+              )
+
+
+
             ],
-          ));
+          ),
+        ),
+      )
+  );
+
+  showDialog(
+    context:  mContext,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return alert;
     },
   );
 }
+
+
 

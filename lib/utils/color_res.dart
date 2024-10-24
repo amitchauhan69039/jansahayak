@@ -56,6 +56,27 @@ class ColorRes {
   static const Color redTransColor = Color(0x46FF5C5C);
   static const Color fontLightColor = Color(0xFF6A6A6A);
   static const Color downloadBgColor = Color(0xFFFF5C5C);
+  static const Color chirayubackbtnColor = Color(0xFF0740AA);
+  static const Color hospitalCardColor = Color(0xFF90F39A);
+  static const Color hospitalCard2Color = Color(0xFFF8BCB7);
+  static const Color hospitalCardbgColor = Color(0xFFF2F5F9);
+  static const Color hospitalTextbgColor = Color(0xFFD77300);
+  static const Color hospitalDarkGreyTextColor = Color(0xFF807f7f);
+  static const Color hospitalCardHzBgColor = Color(0xFFF3EDFF);
+  static const Color dividerColor = Color(0xFFbdbdbd);
+  static const Color goiColor = Color(0xFF5C598A);
+  static const Color privateProfitColor = Color(0xFFFA474E);
+  static const Color privateNonProfitColor = Color(0xFF036E80);
+  static const Color publicColor = Color(0xFFD57500);
+  static const Color hospitaTitleBgColor = Color(0xFFF6EEFF);
+  static const Color navigationBgColor = Color(0xFFEBFEFE);
+  static const Color chooseTextColor = Color(0xFF377D30);
+  static const Color divider2Color = Color(0xFFd4d9d5);
+  static const Color harpathBgColor = Color(0xFFFB582F);
+  static const Color darkGrey2Color = Color(0xFF686868);
+  static const Color transparentPinkBgColor = Color(0xFFFDD7CC);
+  static const Color lightGreyColor = Color(0xFFEFEFEF);
+  static const Color harpathlightOrgColor = Color(0xFFFEBEAA);
 
 
 

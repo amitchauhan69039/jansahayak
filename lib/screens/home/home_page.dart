@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:JanSahayak/jan_sahayak.dart';
+import 'package:JanSahayak/screens/chirayu/chirayudashboard/chirayu_dashboard_screen.dart';
 import 'package:JanSahayak/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -236,28 +239,35 @@ class _HomePageState extends State<HomePage> {
                                                     ),
                                                   ),
                                                 ),
-                                                Container(
-                                                  margin: EdgeInsets.all(10),
-                                                  height: 35,
-                                                  width: 75,
-                                                  decoration: BoxDecoration(
-                                                      color: ColorRes.white),
-                                                  child: Align(
-                                                    alignment: Alignment.center,
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              3.0),
-                                                      child: Text(
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        'Register \n Grievance'
-                                                            .tr,
-                                                        style: styleW400S20
-                                                            .copyWith(
-                                                                fontSize: 10,
-                                                                color: ColorRes
-                                                                    .appPrimaryDarkColor),
+                                                InkWell(
+                                                  onTap: () {
+                                                    Get.to(() => WebViewScreen(serviceName: 'ppp_grievance_register'.tr,
+                                                      serviceUrl: "https://grievance.edisha.gov.in/grievance/?familyid=${PrefService.getString(PrefKeys.FamilyID)}",
+                                                    ));
+                                                  },
+                                                  child: Container(
+                                                    margin: EdgeInsets.all(10),
+                                                    height: 35,
+                                                    width: 75,
+                                                    decoration: BoxDecoration(
+                                                        color: ColorRes.white),
+                                                    child: Align(
+                                                      alignment: Alignment.center,
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets.all(
+                                                                3.0),
+                                                        child: Text(
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          'Register \n Grievance'
+                                                              .tr,
+                                                          style: styleW400S20
+                                                              .copyWith(
+                                                                  fontSize: 10,
+                                                                  color: ColorRes
+                                                                      .appPrimaryDarkColor),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -442,30 +452,45 @@ class _HomePageState extends State<HomePage> {
                                                   height: 1.2),
                                             ),
                                             appSizedBox(height: 10),
-                                            Container(
-                                              height: 35,
-                                              width: 125,
-                                              decoration: BoxDecoration(
-                                                  color:
-                                                      ColorRes.cardButtonColor,
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(4))),
-                                              child: Align(
-                                                alignment: Alignment.center,
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(3.0),
-                                                  child: Text(
-                                                    textAlign: TextAlign.center,
-                                                    'Register Complaint'.tr,
-                                                    style:
-                                                        styleW400S20.copyWith(
-                                                            fontSize: 12,
-                                                            color:
-                                                                ColorRes.white,
-                                                            height: 1,
-                                                            wordSpacing: 0.1),
+                                            InkWell(
+                                              onTap: (){
+                                                // PrefService.set(PrefKeys.HARPATH_NAME,PrefService.getString(PrefKeys.FAMILY_MEMBERS_NAME) );
+                                                // PrefService.set(PrefKeys.HARPATH_MOBILE, PrefService.getString(PrefKeys.FamilyMobile));
+                                                // PrefService.set(PrefKeys.HARPATH_ACCESS_TOKEN, "");
+                                                // PrefService.set(PrefKeys.HARPATH_CITIZEN_ID, "");
+
+                                                if(PrefService.getString(PrefKeys.HARPATH_CITIZEN_ID).isEmpty){
+                                                  Get.to(() => HarpathOtpScreen());
+                                                }else{
+                                                  Get.to(() => MapScreen());
+                                                }
+
+                                              },
+                                              child: Container(
+                                                height: 35,
+                                                width: 125,
+                                                decoration: BoxDecoration(
+                                                    color:
+                                                        ColorRes.cardButtonColor,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(4))),
+                                                child: Align(
+                                                  alignment: Alignment.center,
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(3.0),
+                                                    child: Text(
+                                                      textAlign: TextAlign.center,
+                                                      'Register Complaint'.tr,
+                                                      style:
+                                                          styleW400S20.copyWith(
+                                                              fontSize: 12,
+                                                              color:
+                                                                  ColorRes.white,
+                                                              height: 1,
+                                                              wordSpacing: 0.1),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -575,34 +600,39 @@ class _HomePageState extends State<HomePage> {
                                                 ),
                                                 appSizedBox(width: 10),
                                                 Expanded(
-                                                  child: Container(
-                                                    height: 35,
-                                                    width: 60,
-                                                    decoration: BoxDecoration(
-                                                        color: ColorRes.white,
-                                                        borderRadius:
-                                                            BorderRadius.all(
-                                                                Radius.circular(
-                                                                    4))),
-                                                    child: Align(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .all(3.0),
-                                                        child: Text(
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          'Chirayu'.tr,
-                                                          style: styleW400S20
-                                                              .copyWith(
-                                                                  fontSize: 12,
-                                                                  color: ColorRes
-                                                                      .cardAyushmanTextColor,
-                                                                  height: 1,
-                                                                  wordSpacing:
-                                                                      0.1),
+                                                  child: InkWell(
+                                                    onTap: (){
+                                                      Get.to(() => ChirayuDashboardScreen());
+                                                    },
+                                                    child: Container(
+                                                      height: 35,
+                                                      width: 60,
+                                                      decoration: BoxDecoration(
+                                                          color: ColorRes.white,
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius.circular(
+                                                                      4))),
+                                                      child: Align(
+                                                        alignment:
+                                                            Alignment.center,
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(3.0),
+                                                          child: Text(
+                                                            textAlign:
+                                                                TextAlign.center,
+                                                            'Chirayu'.tr,
+                                                            style: styleW400S20
+                                                                .copyWith(
+                                                                    fontSize: 12,
+                                                                    color: ColorRes
+                                                                        .cardAyushmanTextColor,
+                                                                    height: 1,
+                                                                    wordSpacing:
+                                                                        0.1),
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -633,67 +663,83 @@ class _HomePageState extends State<HomePage> {
                               right: 10, left: 10, bottom: 10),
                           child: Card(
                             elevation: 5.0,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                                color: ColorRes.cardAyushmanColor,
-                                gradient: LinearGradient(
-                                    colors: [
-                                      ColorRes.gradientCardStartColor,
-                                      ColorRes.gradientCardCenterColor,
-                                      ColorRes.gradientCardEndColor
-                                    ],
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Image.asset(
-                                        AssetRes.documentsIcon,
-                                        width: 60,
-                                        height: 60,
+                            child: InkWell(
+                              onTap: () async {
+                                if(controller.isFolderExist){
+                                  toastMsg("exist");
+
+                                  Future<List<String>> list= controller.getList();
+                                  var ll=await list;
+
+                                  Get.to(() => DownloadGalleryScreen());
+                                  print("exist : "+ll[0]);
+
+                                }else{
+                                  toastMsg("No Documents are downloaded yet !");
+                                }
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  color: ColorRes.cardAyushmanColor,
+                                  gradient: LinearGradient(
+                                      colors: [
+                                        ColorRes.gradientCardStartColor,
+                                        ColorRes.gradientCardCenterColor,
+                                        ColorRes.gradientCardEndColor
+                                      ],
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: Image.asset(
+                                          AssetRes.documentsIcon,
+                                          width: 60,
+                                          height: 60,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Expanded(
-                                      flex: 1,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 10.0,
-                                            top: 10,
-                                            bottom: 10,
-                                            right: 15),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            appSizedBox(height: 10),
-                                            Text(
-                                              textAlign: TextAlign.left,
-                                              'downloaded_documents'.tr,
-                                              style: styleW600S18.copyWith(
-                                                  fontSize: 16,
-                                                  color: ColorRes.white),
-                                            ),
-                                            appSizedBox(height: 5),
-                                            Text(
-                                              textAlign: TextAlign.left,
-                                              'list_of_documents_downloaded_on_jansahayak'
-                                                  .tr,
-                                              style: styleW400S20.copyWith(
-                                                  fontSize: 12,
-                                                  color: ColorRes.white,
-                                                  height: 1.2),
-                                            ),
-                                            appSizedBox(height: 20),
-                                          ],
-                                        ),
-                                      )),
-                                ],
+                                    Expanded(
+                                        flex: 1,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 10.0,
+                                              top: 10,
+                                              bottom: 10,
+                                              right: 15),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              appSizedBox(height: 10),
+                                              Text(
+                                                textAlign: TextAlign.left,
+                                                'downloaded_documents'.tr,
+                                                style: styleW600S18.copyWith(
+                                                    fontSize: 16,
+                                                    color: ColorRes.white),
+                                              ),
+                                              appSizedBox(height: 5),
+                                              Text(
+                                                textAlign: TextAlign.left,
+                                                'list_of_documents_downloaded_on_jansahayak'
+                                                    .tr,
+                                                style: styleW400S20.copyWith(
+                                                    fontSize: 12,
+                                                    color: ColorRes.white,
+                                                    height: 1.2),
+                                              ),
+                                              appSizedBox(height: 20),
+                                            ],
+                                          ),
+                                        )),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -715,34 +761,65 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Expanded(
                                 flex: 1,
-                                child: Image.asset(
-                                  AssetRes.facebookIcon,
-                                  width: 50,
-                                  height: 50,
+                                child: InkWell(
+                                  onTap: (){
+                                    Get.to(() => WebViewScreen(serviceName: 'cmo_fb'.tr,
+                                        serviceUrl: "https://www.facebook.com/HaryanaCMO"
+                                    ));
+                                  },
+                                  child: Image.asset(
+                                    AssetRes.facebookIcon,
+                                    width: 50,
+                                    height: 50,
+                                  ),
                                 ),
                               ),
                               Expanded(
                                 flex: 1,
-                                child: Image.asset(
-                                  AssetRes.ytIcon,
-                                  width: 50,
-                                  height: 50,
+                                child: InkWell(
+                                  onTap: (){
+                                    Get.to(() => WebViewScreen(serviceName: 'cmo_yt'.tr,
+                                        serviceUrl: "https://www.youtube.com/channel/UCsjy1P4S5Izc-eCFaiZEbhg"
+                                    ));
+
+                                  },
+                                  child: Image.asset(
+                                    AssetRes.ytIcon,
+                                    width: 50,
+                                    height: 50,
+                                  ),
                                 ),
                               ),
                               Expanded(
                                 flex: 1,
-                                child: Image.asset(
-                                  AssetRes.instagramIcon,
-                                  width: 50,
-                                  height: 50,
+                                child: InkWell(
+                                  onTap: (){
+                                    Get.to(() => WebViewScreen(serviceName: 'cmo_insta'.tr,
+                                        serviceUrl: "https://www.instagram.com/mlkhattar/"
+                                    ));
+
+                                  },
+                                  child: Image.asset(
+                                    AssetRes.instagramIcon,
+                                    width: 50,
+                                    height: 50,
+                                  ),
                                 ),
                               ),
                               Expanded(
                                 flex: 1,
-                                child: Image.asset(
-                                  AssetRes.twitterIcon,
-                                  width: 50,
-                                  height: 50,
+                                child: InkWell(
+                                  onTap: (){
+                                    Get.to(() => WebViewScreen(serviceName: 'cmo_x'.tr,
+                                        serviceUrl: "https://twitter.com/cmohry"
+                                    ));
+
+                                  },
+                                  child: Image.asset(
+                                    AssetRes.twitterIcon,
+                                    width: 50,
+                                    height: 50,
+                                  ),
                                 ),
                               ),
                             ],
@@ -1104,41 +1181,27 @@ class _HomePageState extends State<HomePage> {
                       elevation: 5,
                       child: InkWell(
                         onTap: () {
-                          if (PrefService.getString(PrefKeys.USER_ROLE) ==
-                              "P") {
-                            print(
-                                "iD ${controller.data!.data![3].oSub![index].id}");
-                            if (controller.data!.data![3].oSub![index].id ==
-                                "5") {
-                            } else if (controller
-                                    .data!.data![3].oSub![index].id ==
-                                "6") {
-                              String finalURL =
-                                  "https://dduapsy.hppa.in/get-family-id/?family_id=" +
-                                      PrefService.getString(PrefKeys.FamilyID) +
-                                      "&scheme=strayanimal";
+                          if (PrefService.getString(PrefKeys.USER_ROLE) == "P") {
+                            print("iD ${controller.data!.data![3].oSub![index].id}");
+                            if (controller.data!.data![3].oSub![index].id == "5") {
+                              Get.to(() => PropertySvamitvaScreen());
+                            } else if (controller.data!.data![3].oSub![index].id == "6") {
+                              String finalURL = "https://dduapsy.hppa.in/get-family-id/?family_id=" + PrefService.getString(PrefKeys.FamilyID) + "&scheme=strayanimal";
                               Get.to(() => WebViewScreen(
                                     serviceName: 'DAYALU Yojana'.tr,
                                     serviceUrl: finalURL,
                                   ));
-                            } else if (controller
-                                    .data!.data![3].oSub![index].id ==
-                                "7") {
-                            } else if (controller
-                                    .data!.data![3].oSub![index].id ==
-                                "8") {
-                            } else if (controller
-                                    .data!.data![3].oSub![index].id ==
-                                "9") {
-                            } else if (controller
-                                    .data!.data![3].oSub![index].id ==
-                                "10") {
-                            } else if (controller
-                                    .data!.data![3].oSub![index].id ==
-                                "11") {
-                            } else if (controller
-                                    .data!.data![3].oSub![index].subMenu ==
-                                "Housing for All") {}
+                            } else if (controller.data!.data![3].oSub![index].id == "7") {
+                              Get.to(() => RashanCardScreen());
+                            } else if (controller.data!.data![3].oSub![index].id == "8") {
+                              Get.to(() => MarriageCertificateScreen());
+                            } else if (controller.data!.data![3].oSub![index].id == "9") {
+                              Get.to(() => CastCertificateScreen());
+                            } else if (controller.data!.data![3].oSub![index].id == "10") {
+                              Get.to(() => IncomeCertificateScreen());
+                            } else if (controller.data!.data![3].oSub![index].id == "11") {
+                              Get.to(() => DomicleDocumentScreen());
+                            } else if (controller.data!.data![3].oSub![index].subMenu == "Housing for All") {}
                           } else {
                             Get.to(() => CommonFamilyNotVerfiedScreen());
                           }
@@ -1234,10 +1297,12 @@ class _HomePageState extends State<HomePage> {
 
                             if(controller.data!.data![0].oSub![index].subMenu=="HKRNL")
                             {
+                              String finalURL="${controller.data!.data![0].oSub![index].url!}${PrefService.getString(PrefKeys.FamilyID)}?FM=${PrefService.getString(PrefKeys.FamilyID)}&MM=${PrefService.getString(PrefKeys.FamilyMemberID)}&MB=1234";
 
-                              String finalURL="${controller.data!.data![0].oSub![index].url!}/${PrefService.getString(PrefKeys.FamilyID)}?FM=${PrefService.getString(PrefKeys.FamilyID)}&MM=${PrefService.getString(PrefKeys.FamilyMemberID)}&MB=1234";
 
-                              makePhoneCall(finalURL);
+                              Get.to(() => WebViewScreen(serviceName: 'Haryana Kaushal Rozgar Nigam'.tr,
+                                serviceUrl: finalURL
+                              ));
 
                             }
                           }else{
@@ -1304,5 +1369,11 @@ class _HomePageState extends State<HomePage> {
     } else {
       return Container();
     }
+  }
+
+  Future<bool> isFolderExist() async{
+    final path ="/storage/emulated/0/${PrefKeys.JAN_DOC_PATH}-${PrefService.getString(PrefKeys.FamilyID)}";
+    final checkPathExistence = await Directory(path).exists();
+    return checkPathExistence;
   }
 }

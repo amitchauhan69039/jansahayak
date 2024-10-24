@@ -307,3 +307,76 @@ class CommonBackButton extends StatelessWidget {
     );
   }
 }
+
+class ChirayuAppbar extends StatelessWidget {
+  final String? title;
+  final Widget? rightWidget;
+  final bool? useSafeArea;
+  final VoidCallback? onBackTap;
+  final Color? backgroundColor;
+
+  const ChirayuAppbar({Key? key, this.title, this.rightWidget, this.useSafeArea, this.onBackTap, this.backgroundColor});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: ColorRes.white,
+      height: 80,
+      child:Row(
+        children: [
+          Align(
+            child: CommonBackButton(onTap: onBackTap,iconColor: ColorRes.chirayubackbtnColor,),
+            alignment: Alignment.centerLeft,
+          ),
+          appSizedBox(width: 12),
+          Expanded(
+            child: Column(
+              children: [
+                appSizedBox(height: 7),
+                Text(
+                  textAlign: TextAlign.left,
+                  "आयुष्मान भारत हरियाणा",
+                  style: styleW600S15.copyWith(fontSize: 12, color: ColorRes.black),
+                ),
+                Text(
+                  textAlign: TextAlign.left,
+                  "Ayushman Bharat,Haryana",
+                  style: styleW600S15.copyWith(fontSize: 15, color: ColorRes.black),
+                ),
+              ],
+            ),
+          ),
+          appSizedBox(width: 10),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Column(
+              children: [
+                appSizedBox(height: 10),
+                InkWell(
+                  onTap:(){
+                    makePhoneCall('tel:112');
+                    },
+                  child: Image.asset(
+                    AssetRes.call_chirayu,
+                    height: 30,
+                    width: 30,
+                  ),
+                ),
+                Text(
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  textAlign: TextAlign.center,
+                  'call'.tr,
+                  style: styleOpenW100S12.copyWith(fontSize: 10, color: ColorRes.black),
+                ),
+
+              ],
+            ),
+          ),
+          appSizedBox(width: 12),
+        ],
+      ),
+
+    );
+  }
+}

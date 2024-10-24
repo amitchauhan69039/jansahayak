@@ -1,8 +1,13 @@
 import 'dart:io';
+import 'dart:ui';
 import 'package:JanSahayak/utils/app_localization.dart';
 import 'package:JanSahayak/jan_sahayak.dart';
+import 'package:arcgis_maps/arcgis_maps.dart';
 
 Future<void> main() async {
+  const apiKey = "AAPTxy8BH1VEsoebNVZXo8HurJWExKZFnEgvpK55Cbu2q45IC9daoyolSDC1eSsfcxHH9rAFoZD2_DJOQB81qudpMY52KrXIPFCvwE-z2toblHPcXKNntXHiy2KI1l_FmG8t32ZfiSpwL2QRwdK3OJOo1zv8g0JVndkYfALkxa1n2jVguDZgGHll0Q8a2nljBWjO7WqBtvWsaKJtrilvpCi_iutTefWlxTLIOHjGetYhqyU.AT1_Lh15k4nW";
+
+  ArcGISEnvironment.apiKey =apiKey;
   WidgetsFlutterBinding.ensureInitialized();
 
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -35,8 +40,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Visitors',
+      title: 'Jan Sahayak',
       debugShowCheckedModeBanner: false,
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(
+        dragDevices: {
+          PointerDeviceKind.touch,
+          PointerDeviceKind.mouse,
+        },
+      ),
       theme: ThemeData(
         colorScheme: const ColorScheme.light().copyWith(
           primary: ColorRes.appPrimaryColor,
