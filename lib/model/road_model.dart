@@ -6,9 +6,8 @@ class RoadModel {
   String? status;
   List<RoadsData>? roads;
   String? message;
-  int? road_count;
 
-  RoadModel({this.status, this.roads, this.message,this.road_count});
+  RoadModel({this.status, this.roads, this.message});
 
   RoadModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
@@ -19,7 +18,6 @@ class RoadModel {
       });
     }
     message = json['message'];
-    road_count = json['road_count'];
   }
 
   Map<String, dynamic> toJson() {
@@ -29,7 +27,6 @@ class RoadModel {
       data['roads'] = this.roads!.map((v) => v.toJson()).toList();
     }
     data['message'] = this.message;
-    data['road_count'] = this.road_count;
     return data;
   }
 }

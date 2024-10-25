@@ -51,6 +51,8 @@ class EndPoints {
   static const getHarPathOTP = '${URL_BASE_HARPATH}getOTP';
   static const registerHarPathUser = '${URL_BASE_HARPATH}registerUser';
   static const getRoadAttributes = '${URL_BASE_HARPATH}getRoadAttributes';
+  static const registerComplaint = '${URL_BASE_HARPATH}registerComplaint';
+  static const getHarpathReports = '${URL_BASE_HARPATH}getComplaint';
 
 
   static const verifyOTP = '${api}api/validateotp';

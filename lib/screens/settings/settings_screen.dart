@@ -91,6 +91,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                     }else {
                       //showFeedbackDialog(context);
+                      Get.to(() => ProfileScreen());
                     }
 
 

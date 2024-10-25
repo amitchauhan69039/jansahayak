@@ -80,6 +80,7 @@ class AssetRes {
   static const logout_icon="${icons}logout_icon.png";
   static const ic_right_arrow="${icons}ic_right_arrow.png";
   static const ic_feedback="${icons}ic_feedback.PNG";
+  static const ic_suggestion="${icons}ic_suggestion.PNG";
   static const base_s_a="${icons}base_s_a.jpg";
   static const base_st_p="${icons}base_st_p.png";
   static const photo="${icons}photo.png";

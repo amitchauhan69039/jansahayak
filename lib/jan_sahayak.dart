@@ -129,5 +129,12 @@ export 'package:JanSahayak/screens/harpath_otp/api/harpath_otp_api.dart';
 export 'package:JanSahayak/screens/map/map_screen.dart';
 export 'package:JanSahayak/screens/map/controller/map_controller.dart';
 export 'package:JanSahayak/screens/map/api/map_api.dart';
+export 'package:JanSahayak/screens/harpath_reports/harpath_reports_screen.dart';
+export 'package:JanSahayak/screens/harpath_reports/controller/harpath_reports_controller.dart';
+export 'package:JanSahayak/screens/harpath_reports/api/harpath_reports_api.dart';
+export 'package:JanSahayak/screens/harpath_report_detail/harpath_report_detail_screen.dart';
+export 'package:JanSahayak/screens/profile/profile_screen.dart';
+export 'package:JanSahayak/screens/profile/controller/profile_controller.dart';
+export 'package:JanSahayak/screens/profile/api/profile_api.dart';
 
 

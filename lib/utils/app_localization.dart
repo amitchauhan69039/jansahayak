@@ -184,6 +184,8 @@ class AppLocalization extends Translations {
     "remarks": "Remarks",
     "enter_remarks": "Enter Remarks",
     "resend_otp": "Resend OTP",
+    "member_count": "Member Count",
+    "added_family_members_on_janshayak": "List of Added Family Members on Janshayak",
 
 
 
@@ -386,6 +388,8 @@ class AppLocalization extends Translations {
     "rating_txt": "उपयोगकर्ता के अनुकूल सेवा प्रणाली बनाने में हमारी सहायता करें",
     "remarks": "टिप्पणी",
     "enter_remarks": "टिप्पणी दर्ज करें",
+    "member_count": "सदस्य गणना",
+    "added_family_members_on_janshayak": "जनसहायक पर जोड़े गए परिवार के सदस्यों की सूची",
 
 
 

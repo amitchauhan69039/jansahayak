@@ -379,4 +379,74 @@ class ChirayuAppbar extends StatelessWidget {
 
     );
   }
+
+}
+
+class HarpathAppbar extends StatelessWidget {
+  final String? title;
+  final Widget? rightWidget;
+  final bool? useSafeArea;
+  final VoidCallback? onBackTap;
+  final Color? backgroundColor;
+
+  const HarpathAppbar({Key? key, this.title, this.rightWidget, this.useSafeArea, this.onBackTap, this.backgroundColor});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: backgroundColor ?? ColorRes.appPrimaryColor,
+      height: 65,
+      child:Row(
+        children: [
+          Align(
+            child: CommonBackButton(onTap: onBackTap),
+            alignment: Alignment.centerLeft,
+          ),
+          Expanded(
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                textAlign: TextAlign.center,
+                title ?? "",
+                style: styleW600S15.copyWith(fontSize: 19, color: ColorRes.white),
+              ),
+            ),
+          ),
+          appSizedBox(width: 10),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Column(
+              children: [
+                appSizedBox(height: 10),
+                InkWell(
+                  onTap:(){
+                    Get.to(() => HarpathReportsScreen());
+                  },
+                  child: Image.asset(
+                    AssetRes.ic_suggestion,
+                    height: 25,
+                    width: 25,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  textAlign: TextAlign.center,
+                  'Complaints'.tr,
+                  style: styleOpenW100S12.copyWith(fontSize: 9, color: ColorRes.white),
+                ),
+
+              ],
+            ),
+          ),
+          appSizedBox(width: 12),
+        ],
+      ),
+
+    );
+  }
+
 }

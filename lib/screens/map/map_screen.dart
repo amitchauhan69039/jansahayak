@@ -84,7 +84,7 @@ class _MapScreenState extends State<MapScreen> {
           resizeToAvoidBottomInset: false,
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(60),
-            child: CommonAppbar(title: 'app_name'.tr),
+            child: HarpathAppbar(title: 'app_name'.tr),
           ),
           body: GetBuilder<MapController>(
             id: 'map_screen',
@@ -383,7 +383,7 @@ class _MapScreenState extends State<MapScreen> {
                                             {
                                               if (controller.roadProblemController.text != list[0]){
                                                   if (controller.imageFile != null){
-
+                                                    controller.postReportData(mContext!)
                                                     } else {
                                                       toastMsg('Please upload image to submit report !!')
                                                     }
@@ -525,6 +525,7 @@ class _MapScreenState extends State<MapScreen> {
     // // Add the graphics overlay to the map view.
     // _mapViewController.graphicsOverlays.add(_graphicsOverlay);
 
+
     final mapImageLayer = ArcGISMapImageLayer.withUri(
       Uri.parse(
         controller.mapModel!.map![0].roadlayers!,
@@ -589,8 +590,12 @@ class _MapScreenState extends State<MapScreen> {
     final combinedString =
         resultStrings.where((str) => str.isNotEmpty).join(', ');
 
-    controller.distance = calculateDistance(
-        InputY, InputX, controller.latitiude!, controller.longitude!);
+    controller.selectedX=InputX;
+    controller.selectedY=InputY;
+    controller.X=_mapViewController.locationDisplay.location!.position.x;
+    controller.Y=_mapViewController.locationDisplay.location!.position.y;
+
+    controller.distance = calculateDistance(InputY, InputX, controller.Y!, controller.X!);
 
     if (controller.distance! < double.parse(controller.distanceMetersAPI)) {
       controller.cameraDistanceCheck = true;
@@ -646,6 +651,7 @@ class _MapScreenState extends State<MapScreen> {
 
     // Zoom in by increasing the scale (e.g., by half)
     double newScale = currentViewpoint!.targetScale * 2.0;
+
 
     // Set the new viewpoint with the updated scale
 
@@ -889,4 +895,5 @@ class _MapScreenState extends State<MapScreen> {
       },
     );
   }
+
 }
