@@ -186,6 +186,8 @@ class AppLocalization extends Translations {
     "resend_otp": "Resend OTP",
     "member_count": "Member Count",
     "added_family_members_on_janshayak": "List of Added Family Members on Janshayak",
+    "mobile": "Mobile",
+    "add_new_member_in_family_on_jansahyak": "Add New Member in Family on JanSahyak",
 
 
 
@@ -390,6 +392,8 @@ class AppLocalization extends Translations {
     "enter_remarks": "टिप्पणी दर्ज करें",
     "member_count": "सदस्य गणना",
     "added_family_members_on_janshayak": "जनसहायक पर जोड़े गए परिवार के सदस्यों की सूची",
+    "mobile": "मोबाइल",
+    "add_new_member_in_family_on_jansahyak": "जनसहायक पर परिवार में नया सदस्य जोड़ें",
 
 
 

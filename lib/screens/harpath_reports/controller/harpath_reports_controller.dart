@@ -10,6 +10,7 @@ class HarpathReportsController extends GetxController {
   HarpathReportModel? harpathReportModel;
   bool isTextShow=false;
 
+
   @override
   void onInit() {
     super.onInit();

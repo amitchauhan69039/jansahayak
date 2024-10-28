@@ -312,18 +312,23 @@ class _HarpathReportDetailScreenState extends State<HarpathReportDetailScreen> {
                               ),
 
                               appSizedBox(height: 15),
-                              FadeInImage(
-                                image: NetworkImage(widget.complaintsData.completed_photo!),
-                                placeholder: AssetImage(AssetRes.photo),
-                                imageErrorBuilder:
-                                    (context, error, stackTrace) {
-                                  return Image.asset(
-                                    AssetRes.photo,
-                                    width: 100,
-                                    height: 100,);
+                              InkWell(
+                                onTap: (){
+                                  mShowFullImage(context);
                                 },
-                                width: 100,
-                                height: 100,
+                                child: FadeInImage(
+                                  image: NetworkImage(widget.complaintsData.completed_photo!),
+                                  placeholder: AssetImage(AssetRes.photo),
+                                  imageErrorBuilder:
+                                      (context, error, stackTrace) {
+                                    return Image.asset(
+                                      AssetRes.photo,
+                                      width: 100,
+                                      height: 100,);
+                                  },
+                                  width: 100,
+                                  height: 100,
+                                ),
                               ),
 
                             ],
@@ -337,6 +342,42 @@ class _HarpathReportDetailScreenState extends State<HarpathReportDetailScreen> {
   }
 
 
+  void mShowFullImage(BuildContext context) {
+    Dialog settingsDialog = Dialog(
+      child: Container(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FadeInImage(
+              image: NetworkImage(widget.complaintsData.completed_photo!),
+              placeholder:
+              AssetImage(AssetRes.photo),
+              imageErrorBuilder:
+                  (context, error, stackTrace) {
+                return Image.asset(
+                  AssetRes.photo,
+                );
+              },
+            ),
+
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Close'),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return settingsDialog;
+      },
+    );
+  }
 
 
 }

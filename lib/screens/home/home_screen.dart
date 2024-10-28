@@ -1,5 +1,6 @@
 import 'package:JanSahayak/screens/applications/applications_screen.dart';
 import 'package:JanSahayak/jan_sahayak.dart';
+import 'package:share_plus/share_plus.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -131,42 +132,55 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                                 appSizedBox(height: 10),
-                                Container(
-                                  height: 50,
-                                  margin: EdgeInsets.only(left: 20),
-                                  child: Row(
-                                    children: [
-                                      Image.asset(
-                                        AssetRes.shareIcon,
-                                        height: 24,
-                                        width: 24,
-                                      ),
-                                      appSizedBox(width: 10),
-                                      Text(
-                                        textAlign: TextAlign.center,
-                                        'share'.tr,
-                                        style: styleW400S20.copyWith(fontSize: 14, color: ColorRes.menuTextColor),
-                                      ),
-                                    ],
+                                InkWell(
+                                  onTap: () async{
+                                    await Share.share("Hey,This application is an initiative of Government of  Haryana. To download please visit : http://jansahayak.haryana.gov.in/appshare.aspx");
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    margin: EdgeInsets.only(left: 20),
+                                    child: Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetRes.shareIcon,
+                                          height: 24,
+                                          width: 24,
+                                        ),
+                                        appSizedBox(width: 10),
+                                        Text(
+                                          textAlign: TextAlign.center,
+                                          'share'.tr,
+                                          style: styleW400S20.copyWith(fontSize: 14, color: ColorRes.menuTextColor),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                                Container(
-                                  height: 50,
-                                  margin: EdgeInsets.only(left: 20),
-                                  child: Row(
-                                    children: [
-                                      Image.asset(
-                                        AssetRes.settingIcon,
-                                        height: 24,
-                                        width: 24,
-                                      ),
-                                      appSizedBox(width: 10),
-                                      Text(
-                                        textAlign: TextAlign.center,
-                                        'settings'.tr,
-                                        style: styleW400S20.copyWith(fontSize: 14, color: ColorRes.menuTextColor),
-                                      ),
-                                    ],
+                                InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      _currentIndex=4;
+                                    });
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    margin: EdgeInsets.only(left: 20),
+                                    child: Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetRes.settingIcon,
+                                          height: 24,
+                                          width: 24,
+                                        ),
+                                        appSizedBox(width: 10),
+                                        Text(
+                                          textAlign: TextAlign.center,
+                                          'settings'.tr,
+                                          style: styleW400S20.copyWith(fontSize: 14, color: ColorRes.menuTextColor),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 InkWell(

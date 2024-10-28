@@ -4,6 +4,8 @@ import 'package:JanSahayak/screens/home/controller/jansahayak.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
+import '../../model/static_member_model.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -14,8 +16,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
-    var ss=PrefService.getStringList(PrefKeys.FAMILY_MEMBERS);
-    print("list: ${ss.toString()}");
+
+
     super.initState();
   }
 
@@ -37,155 +39,176 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: CommonAppbar(title: 'Profile'.tr),
           ),
           body: GetBuilder<ProfileController>(
-              id: 'settings',
+              id: 'profile_screen',
               builder: (controller) {
                 return StackedLoader(
                   loading: controller.loader,
                   child: Expanded(
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16,right: 16),
-                        child: Column(
-                          mainAxisSize:MainAxisSize.min,
-                          children: [
-                            appSizedBox(height: 15),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Column(
+                        mainAxisSize:MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 16,right: 16),
+                            child: Column(
                               children: [
-                                Expanded(
-                                  flex: 1,
-                                  child:  Text(
+                                appSizedBox(height: 15),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child:  Text(
+                                        textAlign: TextAlign.start,
+                                        'family_id'.tr,
+                                        style: styleW400S14.copyWith(
+                                            fontSize: 15,
+                                            color: ColorRes.black,
+                                            height: 1),
+                                      ),
+                                    ),
+                                    Text(
+                                      textAlign: TextAlign.start,
+                                      ':'.tr,
+                                      style: styleW400S14.copyWith(
+                                          fontSize: 12,
+                                          color: ColorRes.black,
+                                          fontWeight: FontWeight.w500,
+                                          height: 1),
+                                    ),
+                                    appSizedBox(width: 10),
+                                    Expanded(
+                                      flex: 1,
+                                      child:  Text(
+                                        textAlign: TextAlign.start,
+                                        controller.familyId.text,
+                                        style:styleW400S14.copyWith(
+                                            fontSize: 15,
+                                            color: ColorRes.black,
+                                            height: 1),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+
+                                appSizedBox(height: 15),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child:  Text(
+                                        textAlign: TextAlign.start,
+                                        'address'.tr,
+                                        style: styleW400S14.copyWith(
+                                            fontSize: 15,
+                                            color: ColorRes.black,
+                                            height: 1),
+                                      ),
+                                    ),
+                                    Text(
+                                      textAlign: TextAlign.start,
+                                      ':'.tr,
+                                      style: styleW400S14.copyWith(
+                                          fontSize: 12,
+                                          color: ColorRes.black,
+                                          fontWeight: FontWeight.w500,
+                                          height: 1),
+                                    ),
+                                    appSizedBox(width: 10),
+                                    Expanded(
+                                      flex: 1,
+                                      child:  Text(
+                                        textAlign: TextAlign.start,
+                                        controller.address.text,
+                                        style: styleW400S14.copyWith(
+                                            fontSize: 15,
+                                            color: ColorRes.black,
+                                            height: 1),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                appSizedBox(height: 15),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child:  Text(
+                                        textAlign: TextAlign.start,
+                                        'member_count'.tr,
+                                        style: styleW400S14.copyWith(
+                                            fontSize: 15,
+                                            color: ColorRes.black,
+                                            height: 1),
+                                      ),
+                                    ),
+                                    Text(
+                                      textAlign: TextAlign.start,
+                                      ':'.tr,
+                                      style: styleW400S14.copyWith(
+                                          fontSize: 12,
+                                          color: ColorRes.black,
+                                          fontWeight: FontWeight.w500,
+                                          height: 1),
+                                    ),
+                                    appSizedBox(width: 10),
+                                    Expanded(
+                                      flex: 1,
+                                      child:  Text(
+                                        textAlign: TextAlign.start,
+                                        controller.memberCount.text,
+                                        style: styleW400S14.copyWith(
+                                            fontSize: 15,
+                                            color: ColorRes.black,
+                                            height: 1),
+                                      ),
+                                    ),
+
+                                  ],
+                                ),
+
+                                appSizedBox(height: 15),
+
+                                Align(
+                                  alignment: Alignment.topCenter,
+                                  child: Text(
                                     textAlign: TextAlign.start,
-                                    'family_id'.tr,
-                                    style: styleW400S14.copyWith(
-                                        fontSize: 15,
-                                        color: ColorRes.black,
-                                        height: 1),
+                                    'added_family_members_on_janshayak'.tr,
+                                    style: styleW400S16.copyWith(
+                                      fontSize: 15,
+                                      color: ColorRes.appPrimaryDarkColor,),
                                   ),
                                 ),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  ':'.tr,
-                                  style: styleW400S14.copyWith(
-                                      fontSize: 12,
-                                      color: ColorRes.black,
-                                      fontWeight: FontWeight.w500,
-                                      height: 1),
-                                ),
-                                appSizedBox(width: 10),
-                                Expanded(
-                                  flex: 1,
-                                  child:  Text(
-                                    textAlign: TextAlign.start,
-                                    '',
-                                    style:styleW400S14.copyWith(
-                                        fontSize: 15,
-                                        color: ColorRes.black,
-                                        height: 1),
-                                  ),
-                                ),
+
                               ],
                             ),
+                          ),
 
+                          getProfileData(),
+                          appSizedBox(height: 15),
+                          Container(
+                            margin: EdgeInsets.only(left: 16,right: 16),
+                            child: AppButton(
+                              onButtonTap: (){
 
-                            appSizedBox(height: 15),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child:  Text(
-                                    textAlign: TextAlign.start,
-                                    'address'.tr,
-                                    style: styleW400S14.copyWith(
-                                        fontSize: 15,
-                                        color: ColorRes.black,
-                                        height: 1),
-                                  ),
-                                ),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  ':'.tr,
-                                  style: styleW400S14.copyWith(
-                                      fontSize: 12,
-                                      color: ColorRes.black,
-                                      fontWeight: FontWeight.w500,
-                                      height: 1),
-                                ),
-                                appSizedBox(width: 10),
-                                Expanded(
-                                  flex: 1,
-                                  child:  Text(
-                                    textAlign: TextAlign.start,
-                                    '',
-                                    style: styleW400S14.copyWith(
-                                        fontSize: 15,
-                                        color: ColorRes.black,
-                                        height: 1),
-                                  ),
-                                ),
-                              ],
+                                controller.getDataFromFamilyID(context);
+                              },
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500,
+                              buttonName: 'add_new_member_in_family_on_jansahyak'.tr,
+                              textColor:ColorRes.white,
+                              backgroundColor:ColorRes.appPrimaryDarkColor,
                             ),
-
-                            appSizedBox(height: 15),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child:  Text(
-                                    textAlign: TextAlign.start,
-                                    'member_count'.tr,
-                                    style: styleW400S14.copyWith(
-                                        fontSize: 15,
-                                        color: ColorRes.black,
-                                        height: 1),
-                                  ),
-                                ),
-                                Text(
-                                  textAlign: TextAlign.start,
-                                  ':'.tr,
-                                  style: styleW400S14.copyWith(
-                                      fontSize: 12,
-                                      color: ColorRes.black,
-                                      fontWeight: FontWeight.w500,
-                                      height: 1),
-                                ),
-                                appSizedBox(width: 10),
-                                Expanded(
-                                  flex: 1,
-                                  child:  Text(
-                                    textAlign: TextAlign.start,
-                                    '',
-                                    style: styleW400S14.copyWith(
-                                        fontSize: 15,
-                                        color: ColorRes.black,
-                                        height: 1),
-                                  ),
-                                ),
-
-                              ],
-                            ),
-
-                            appSizedBox(height: 15),
-
-                            Align(
-                              alignment: Alignment.topCenter,
-                              child: Text(
-                                textAlign: TextAlign.start,
-                                'added_family_members_on_janshayak'.tr,
-                                style: styleW400S14.copyWith(
-                                    fontSize: 15,
-                                    color: ColorRes.appPrimaryDarkColor,
-                                    height: 1),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -194,411 +217,208 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Widget getDownloadData(BuildContext mContext) {
-    if(controller.downloadModel!=null && controller.downloadModel!.data!=null){
-      return Container(
-        child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: controller.downloadModel!.data!.length ,
-            scrollDirection: Axis.vertical,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: (){
-                },
+
+  Widget getProfileData() {
+    if ( controller.staticMemberData != null) {
+
+      return  ListView.builder(
+          shrinkWrap: true,
+          physics: const AlwaysScrollableScrollPhysics(),
+          itemCount: controller.staticMemberData!.length ,
+          itemBuilder: (context, index) {
+            return Container(
+              margin: EdgeInsets.only(left: 10,right: 10,top: 10),
+              child: Card(
+                elevation: 5,
                 child: Container(
-                  height: 70,
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 69,
-                        child: Row(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    color: ColorRes.white,
+                  ),
+
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            appSizedBox(width: 10),
-
-                            FadeInImage(
-                              image: NetworkImage(controller.downloadModel!.data![index].imageUrl!,),
-                              placeholder: AssetImage(AssetRes.launchIcon),
-                              imageErrorBuilder:
-                                  (context, error, stackTrace) {
-                                return Image.asset(
-                                  AssetRes.launchIcon,
-                                  width: 45,
-                                  height: 45,);
-                              },
-                              width: 45,
-                              height: 45,
+                            Expanded(
+                              flex: 1,
+                              child:  Text(
+                                textAlign: TextAlign.start,
+                                'name_'.tr,
+                                style: styleW400S14.copyWith(
+                                    fontSize: 15,
+                                    color: ColorRes.black,
+                                    height: 1),
+                              ),
                             ),
-
+                            Text(
+                              textAlign: TextAlign.start,
+                              ':'.tr,
+                              style: styleW400S14.copyWith(
+                                  fontSize: 15,
+                                  color: ColorRes.black,
+                                  fontWeight: FontWeight.w500,
+                                  height: 1),
+                            ),
                             appSizedBox(width: 10),
                             Expanded(
-                                child:Flexible(
-                                  child: Container(
-                                    height: 69,
-                                    child:  Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        PrefService.getString(PrefKeys.selectedLanguage)=="en" ?
-                                        controller.downloadModel!.data![index].engTitle! : controller.downloadModel!.data![index].hinTitle!,
-                                        style: styleW500S12.copyWith(
-                                            fontSize: 13,
-                                            color: ColorRes.black,
-                                            height: 1.1),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                            ),
-                            appSizedBox(width: 5),
-                            Container(
-                              height: 32,
-                              width: 60,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: ColorRes.buttonBgColor,
-                                  border: Border.all(
-                                      width: 1,
-                                      color: ColorRes.buttonBorderColor
-                                  )
-                              ),
-                              child:  Align(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  textAlign: TextAlign.center,
-                                  'view'.tr,
-                                  style: styleOpenW100S12.copyWith(
-                                      fontSize: 11,
-                                      color: ColorRes.buttonTextColor,
-                                      height: 1),
-                                ),
+                              flex: 1,
+                              child:  Text(
+                                textAlign: TextAlign.start,
+                                controller.staticMemberData![index]['memberName'],
+                                style:styleW400S14.copyWith(
+                                    fontSize: 15,
+                                    color: ColorRes.black,
+                                    height: 1),
                               ),
                             ),
-                            appSizedBox(width: 10),
                           ],
                         ),
-                      ),
-                      Divider(
-                        height:0.5,
-                        color: ColorRes.divider2Color,
-                      ),
 
-                    ],
-                  ),
-                ),
-              );
+                        appSizedBox(height: 15),
 
-            }),
-      );
-    }else{
-      return Container(
-        width: MediaQuery.of(mContext).size.width,
-        height: MediaQuery.of(mContext).size.height,
-        child: Align(
-          alignment: Alignment.center,
-          child: Text(
-            textAlign: TextAlign.center,
-            'No Data Found !!'.tr,
-            style: styleW400S14.copyWith(
-                fontSize: 20,
-                color: ColorRes.black,
-                fontWeight: FontWeight.w600,
-                height: 1),
-          ),
-        ),
-      );
-    }
-
-  }
-
-
-  Future<void>  signOut(BuildContext mContext) async{
-    final alert = AlertDialog(
-        contentPadding: EdgeInsets.zero,
-
-        content: Container(
-          decoration: new BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.all(Radius.circular(10))
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('are_you_sure_you_want_to_sign_out'.tr,
-                    style: styleW500S15),
-                appSizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: Get.back,
-                      child: Container(
-                          alignment: Alignment.center,
-                          width: 70,
-                          height: 35,
-                          // padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 3),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: ColorRes.appRedColor,
-                          ),
-                          child: Text('cancel'.tr,
-                              style: styleW500S15.copyWith(
-                                  color: ColorRes.white))),
-                    ),
-                    appSizedBox(width: 2.5.w),
-                    InkWell(
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        Get.back();
-                        await PrefService.set(PrefKeys.USER_ROLE, "");
-                        Get.offAll(() => const LoginScreen());
-                      },
-                      child: AppButton(
-                          buttonName: 'yes'.tr,
-                          buttonHeight: 35,
-                          buttonWidth: 70,
-                          borderRadius: 5,
-                          textColor: ColorRes.white,
-                          backgroundColor: ColorRes.appPrimaryColor),
-                    ),
-                  ],
-                )
-
-
-
-              ],
-            ),
-          ),
-        )
-    );
-
-    showDialog(
-      context:  mContext,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
-  }
-
-  Future<void>  showFeedbackDialog(BuildContext mContext) async{
-    final alert = AlertDialog(
-        contentPadding: EdgeInsets.zero,
-        content: Container(
-          decoration: new BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.all(Radius.circular(5))
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  height: 45,
-                  color: ColorRes.appPrimaryDarkColor,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        textAlign: TextAlign.center,
-                        'feedback'.tr,
-                        style: styleW700S14.copyWith(
-                            fontSize: 16,
-                            color: ColorRes.white),
-                      ),
-                    ),
-
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        AssetRes.ic_feedback,
-                        width: 50,
-                        height: 50,
-                      ),
-
-                      appSizedBox(height: 15),
-
-
-                      Text(
-                        textAlign: TextAlign.center,
-                        'rating_txt'.tr,
-                        style: styleW400S18.copyWith(
-                            fontSize: 14,
-                            color: ColorRes.black),
-                      ),
-
-                      RatingBar.builder(
-                        initialRating: 0,
-                        minRating: 0,
-                        direction: Axis.horizontal,
-                        allowHalfRating: true,
-                        itemCount: 5,
-                        itemSize: 40.0,
-                        itemBuilder: (context, _) => Icon(
-                          Icons.star,
-                          color: ColorRes.selectedTextColor,
-                        ),
-                        onRatingUpdate: (rating) {
-                          setState(() {
-                            controller.rating.text=rating.toString();
-
-                          });
-                          print(rating);
-                        },
-                      ),
-
-                      appSizedBox(height: 10),
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          textAlign: TextAlign.center,
-                          'remarks'.tr,
-                          style: styleW400S18.copyWith(
-                              fontSize: 15,
-                              color: ColorRes.black),
-                        ),
-                      ),
-
-                      appSizedBox(height: 10),
-
-                      Container(
-                        width: double.infinity,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(7),
-                            border: Border.all(
-                              width: 1,
-                              color: ColorRes.borderColor,
-                              style: BorderStyle.solid,
-                            ),
-                            color: ColorRes.white),
-                        child:  Padding(
-                          padding: const EdgeInsets.only(left: 10,right: 10),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: TextField(
-                              controller: controller.remarksValue,
-                              maxLines: null, // Set this
-                              expands: true, // and this
-                              keyboardType: TextInputType.multiline,
-                              textAlignVertical:
-                              TextAlignVertical.center,
-                              onChanged: (text) {},
-                              style: styleW400S13.copyWith(
-                                  fontSize: 16,
-                                  color: ColorRes.black),
-                              decoration:
-                              new InputDecoration.collapsed(
-                                hintText: 'enter_remarks'.tr,
-                                hintStyle:
-                                styleW400S13.copyWith(
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child:  Text(
+                                textAlign: TextAlign.start,
+                                'mobile'.tr,
+                                style: styleW400S14.copyWith(
                                     fontSize: 15,
-                                    color:
-                                    ColorRes.greyColor),
+                                    color: ColorRes.black,
+                                    height: 1),
                               ),
                             ),
-                          ),
+                            Text(
+                              textAlign: TextAlign.start,
+                              ':'.tr,
+                              style: styleW400S14.copyWith(
+                                  fontSize: 15,
+                                  color: ColorRes.black,
+                                  fontWeight: FontWeight.w500,
+                                  height: 1),
+                            ),
+                            appSizedBox(width: 10),
+                            Expanded(
+                              flex: 1,
+                              child:  Text(
+                                textAlign: TextAlign.start,
+                                controller.staticMemberData![index]['mobile'],
+                                style:styleW400S14.copyWith(
+                                    fontSize: 15,
+                                    color: ColorRes.black,
+                                    height: 1),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
 
-                      appSizedBox(height: 15),
+                        appSizedBox(height: 15),
 
-                      Row(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child:  InkWell(
-                              onTap: (){
-                                Navigator.pop(mContext);
-                              },
-                              child: Container(
-                                height: 45,
-                                decoration: BoxDecoration(
-                                  color:ColorRes.appPrimaryDarkColor,
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                ),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    textAlign: TextAlign.start,
-                                    'skip'.tr,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: styleW400S14.copyWith(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
-                                        color: ColorRes.white,
-                                        height: 1),
-                                  ),
-                                ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child:  Text(
+                                textAlign: TextAlign.start,
+                                'gender'.tr,
+                                style: styleW400S14.copyWith(
+                                    fontSize: 15,
+                                    color: ColorRes.black,
+                                    height: 1),
                               ),
                             ),
-                          ),
-                          appSizedBox(width: 15),
-                          Expanded(
-                            flex: 1,
-                            child:  InkWell(
-                              onTap: (){
-
-                              },
-                              child: Container(
-                                height: 45,
-                                decoration: BoxDecoration(
-                                  color:ColorRes.activatedButtonColor,
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                ),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    textAlign: TextAlign.start,
-                                    'submit'.tr,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: styleW400S14.copyWith(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
-                                        color: ColorRes.white,
-                                        height: 1),
-                                  ),
-                                ),
+                            Text(
+                              textAlign: TextAlign.start,
+                              ':'.tr,
+                              style: styleW400S14.copyWith(
+                                  fontSize: 15,
+                                  color: ColorRes.black,
+                                  fontWeight: FontWeight.w500,
+                                  height: 1),
+                            ),
+                            appSizedBox(width: 10),
+                            Expanded(
+                              flex: 1,
+                              child:  Text(
+                                textAlign: TextAlign.start,
+                                controller.staticMemberData![index]['gender'],
+                                style:styleW400S14.copyWith(
+                                    fontSize: 15,
+                                    color: ColorRes.black,
+                                    height: 1),
                               ),
                             ),
-                          ),
-                          appSizedBox(height: 15),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+
+                        appSizedBox(height: 15),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child:  Text(
+                                textAlign: TextAlign.start,
+                                'dob'.tr,
+                                style: styleW400S14.copyWith(
+                                    fontSize: 15,
+                                    color: ColorRes.black,
+                                    height: 1),
+                              ),
+                            ),
+                            Text(
+                              textAlign: TextAlign.start,
+                              ':'.tr,
+                              style: styleW400S14.copyWith(
+                                  fontSize: 15,
+                                  color: ColorRes.black,
+                                  fontWeight: FontWeight.w500,
+                                  height: 1),
+                            ),
+                            appSizedBox(width: 10),
+                            Expanded(
+                              flex: 1,
+                              child:  Text(
+                                textAlign: TextAlign.start,
+                                controller.staticMemberData![index]['DOB'],
+                                style:styleW400S14.copyWith(
+                                    fontSize: 15,
+                                    color: ColorRes.black,
+                                    height: 1),
+                              ),
+                            ),
+                          ],
+                        ),
+
+
+
+                      ],
+                    ),
                   ),
-                )
+                ),
+              ),
+            );
 
+          });
 
-              ],
-            ),
-          ),
-        )
-    );
-
-    showDialog(
-      context:  mContext,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
+    } else {
+      return Container();
+    }
   }
-
-
 
 
 }

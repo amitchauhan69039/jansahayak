@@ -21,6 +21,7 @@ class AuthController extends GetxController {
   String otpReceived = "";
   String gender = "MALE";
   String resentOtp = "";
+  String otpUser="";
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController countryCodeController = TextEditingController();
   TextEditingController pinEditingController = TextEditingController();
@@ -239,7 +240,7 @@ class AuthController extends GetxController {
   }
 
   //Call api for verify otp
-  Future<void>  verifyOtp(String memberID,String txn,String familyId) async{
+  Future<void>  verifyOtp(String memberID,String txn,String familyId,BuildContext mContext) async{
 
     if(await isInternetAvailable(context)){
       FocusManager.instance.primaryFocus?.unfocus();
@@ -259,7 +260,7 @@ class AuthController extends GetxController {
         VerifyOtpModel? model = await AuthApi.verifyOtp(memberID,queryParam);
 
         if (model != null) {
-          if (model.output?.toLowerCase() == "Successfull".toLowerCase()) {
+          if (model.output?.toLowerCase() == "Successfull".toLowerCase() || model.output?.toLowerCase() == "Success".toLowerCase()) {
             if(!model.data!.isEmpty){
               PrefService.set(PrefKeys.FamilyID, model.data![0].pppid);
               PrefService.set(PrefKeys.FamilyEmail, model.data![0].familyemail);
@@ -275,19 +276,32 @@ class AuthController extends GetxController {
               int position=0;
               List<StaticMemberModel> list=[];
               for(int i=0;i<model.data!.length;i++){
-                list.add(StaticMemberModel(memberID: model.data![i].memberid!,memberName: model.data![i].memberid!,id: model.data![i].userId!,
+                list.add(StaticMemberModel(memberID: model.data![i].memberid!,memberName: model.data![i].familyname!,id: model.data![i].userId!,
                     pppid: model.data![i].pppid!,gender: model.data![i].gender!,mobile: model.data![i].familymobile!,
                     Address: model.data![i].address!,DOB: model.data![i].dob!));
 
                 if(memberID.trim()==model.data![i].memberid!){
                   PrefService.set(PrefKeys.MEMBER_POSITION, position);
                 }
+
                 position++;
               }
-              PrefService.set(PrefKeys.FAMILY_MEMBERS, list);
+              print("LISTtttttttt : ${list.toString()}");
 
+              StaticMemberData staticMemberData=StaticMemberData(list);
 
-              Get.offAll(()=> const HomeScreen());
+              String membersStringList = jsonEncode(staticMemberData);
+
+              print("LISTtttttttt1212 :${membersStringList}");
+
+              PrefService.set(PrefKeys.FAMILY_MEMBERS, membersStringList);
+
+              if(otpUser=="Successfull"){
+                Get.offAll(()=> const HomeScreen());
+              }else{
+                Navigator.pop(mContext);
+              }
+
 
             }else{
               toastMsg(" getData ELSE ${model.reason}");
@@ -344,7 +358,7 @@ class AuthController extends GetxController {
               int position=0;
               List<StaticMemberModel> list=[];
               for(int i=0;i<model.data!.length;i++){
-                list.add(StaticMemberModel(memberID: model.data![i].memberid!,memberName: model.data![i].memberid!,id: model.data![i].userId!,
+                list.add(StaticMemberModel(memberID: model.data![i].memberid!,memberName: model.data![i].familyname!,id: model.data![i].userId!,
                     pppid: model.data![i].pppid!,gender: model.data![i].gender!,mobile: model.data![i].familymobile!,
                     Address: model.data![i].address!,DOB: model.data![i].dob!));
 
@@ -353,7 +367,15 @@ class AuthController extends GetxController {
                 }
                 position++;
               }
-              PrefService.set(PrefKeys.FAMILY_MEMBERS, list);
+              print("LISTtttttttt : ${list.toString()}");
+
+              StaticMemberData staticMemberData=StaticMemberData(list);
+
+              String membersStringList = jsonEncode(staticMemberData);
+
+              print("LISTtttttttt1212 :${membersStringList}");
+
+              PrefService.set(PrefKeys.FAMILY_MEMBERS, membersStringList);
 
 
               Get.offAll(()=> const HomeScreen());

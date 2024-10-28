@@ -16,6 +16,7 @@ class _OptVerificationScreenState extends State<OptVerificationScreen> {
 
   @override
   void initState() {
+    controller.otpUser=widget.user;
     super.initState();
 
   }
@@ -80,7 +81,7 @@ class _OptVerificationScreenState extends State<OptVerificationScreen> {
                                 fontSize: 24, color: ColorRes.textBlueColor),
                           ),
                           Text(
-                            widget.user=="Successfull"?widget.message :"+91 - ${widget.mobileNumber}",
+                            widget.user=="Successfull"?widget.message : widget.user=="Add Member" ?widget.message : "+91 - ${widget.mobileNumber}",
                             textAlign: TextAlign.start,
                             style: styleW400S19.copyWith(
                                 fontSize: 15, color: ColorRes.textColor),
@@ -123,7 +124,9 @@ class _OptVerificationScreenState extends State<OptVerificationScreen> {
                           AppButton(
                             onButtonTap:()=>{
                               widget.user=="Successfull"?
-                              controller.verifyOtp(widget.memberId,widget.txn,widget.familyId) :
+                              controller.verifyOtp(widget.memberId,widget.txn,widget.familyId,context) :
+                              widget.user=="Add Member" ?
+                              controller.verifyOtp(widget.memberId,widget.txn,widget.familyId,context):
                                   controller.verifyOtp2(widget.memberId,widget.mobileNumber)
                             },
                             buttonName: 'verify'.tr,
