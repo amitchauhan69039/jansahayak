@@ -17,20 +17,11 @@ class _HomeScreenState extends State<HomeScreen> {
     const NewsListScreen(),
     const ServiceScreen(),
     const HomePage(),
-    const Text('Page Four'),
+    const CalendarScreen(),
     const SettingsScreen(),
   ];
 
 
-  int pageIndex = 0;
-
-  final pages = [
-    const Page1(),
-    const Page1(),
-    const Page1(),
-    const Page1(),
-    const Page1(),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +39,15 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 15),
-              child: Image.asset(
-                AssetRes.notificationIcon,
-                height: 32,
-                width: 32,
+              child: InkWell(
+                onTap: (){
+                  Get.to(() => NotificationScreen());
+                },
+                child: Image.asset(
+                  AssetRes.notificationIcon,
+                  height: 32,
+                  width: 32,
+                ),
               ),
             ),
           ],
@@ -251,17 +247,18 @@ class _HomeScreenState extends State<HomeScreen> {
           type: BottomNavigationBarType.fixed,
           onTap: onTapped,
           currentIndex: _currentIndex,
-          items: const [
+          items:  [
+
 
             BottomNavigationBarItem(
-                icon: Icon(Icons.newspaper,size: 24,), label: 'News'),
+                icon: Icon(Icons.newspaper,size: 24,), label: 'news'.tr),
             BottomNavigationBarItem(
-                icon: Icon(Icons.cleaning_services,size: 24,), label: 'Services'),
-            BottomNavigationBarItem(icon: Icon(Icons.home,size: 24,), label: 'Home'),
+                icon: Icon(Icons.cleaning_services,size: 24,), label: 'services'.tr),
+            BottomNavigationBarItem(icon: Icon(Icons.home,size: 24,), label: 'home'.tr),
             BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_month,size: 24,), label: 'Calendar'),
+                icon: Icon(Icons.calendar_month,size: 24,), label: 'calendar'.tr),
             BottomNavigationBarItem(
-                icon: Icon(Icons.widgets,size: 24,), label: 'Settings'),
+                icon: Icon(Icons.widgets,size: 24,), label: 'settings'.tr),
           ],
         ),
 
@@ -278,53 +275,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
 }
 
-
-
-
-class Page1 extends StatelessWidget {
-  const Page1({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xffC4DFCB),
-      child: Center(
-        child: Text(
-          "Page Number 1",
-          style: TextStyle(
-            color: Colors.green[900],
-            fontSize: 45,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-
-class CustomPopupMenu extends StatelessWidget {
-  final Function(int) onSelected;
-
-  const CustomPopupMenu({Key? key, required this.onSelected}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return PopupMenuButton<int>(
-      icon: Icon(Icons.more_vert, color: Colors.white, size: 24),
-      itemBuilder: (context) => [
-        PopupMenuItem<int>(
-            value: 0,
-            child: Row(
-              children: [
-                Text("logout".tr, style: styleW400S15),
-              ],
-            )),
-      ],
-      onSelected: (item) => onSelected(item),
-    );
-  }
-}
 
 Future<void>  signOut(BuildContext mContext) async{
   final alert = AlertDialog(

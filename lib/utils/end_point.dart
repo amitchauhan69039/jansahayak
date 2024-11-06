@@ -24,6 +24,11 @@ class EndPoints {
   static const VerifyOtpGuestUser = '${URL_BASE}Service/Verify_GuestUser_Request/';
   static const registerViaMobile = '${URL_BASE}Service/Insert_GuestUserInfo/';
   static const getHomeData = '${URL_BASE}Service/Main_MenuAPI';
+  static const familyIdSearchForTXN = '${URL_BASE}Service/OTPPP/';
+  static const GetFamilyDetail = '${URL_BASE}Service/GetFamilyDetail/';
+  static const GetDocument = '${URL_BASE}Service/GetDocument/';
+  static const GetNotification = '${URL_BASE}Service/GetAllNotifications/';
+  static const GetHolidayEvents = '${URL_BASE}Service/GetHolidayEvents';
   static const getServiceData = '${URL_BASE}Service/Get_MainScreenData';
   static const getSaralData = '${URL_BASE}Service/GetSaralServices';
   static const getDepartmentData = '${URL_BASE}Service/Get_CategoryWiseDepartmentList/';

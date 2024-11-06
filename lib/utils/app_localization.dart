@@ -11,6 +11,10 @@ class AppLocalization extends Translations {
   }
 
   Map<String, String> enUs = {
+    "home":"Home",
+    "services":"Services",
+    "news":"News",
+    "calendar":"Calendar",
     "JanSahayak": "Jan Sahayak",
     "government_of_haryana_n_welcomes_you":
         "Government of Haryana, \nWelcomes you!",
@@ -187,7 +191,9 @@ class AppLocalization extends Translations {
     "member_count": "Member Count",
     "added_family_members_on_janshayak": "List of Added Family Members on Janshayak",
     "mobile": "Mobile",
+    "family_details": "Family Details",
     "add_new_member_in_family_on_jansahyak": "Add New Member in Family on JanSahyak",
+
 
 
 
@@ -216,6 +222,10 @@ class AppLocalization extends Translations {
   };
 
   Map<String, String> hiIN = {
+    "home":"होम",
+    "services":"सेवाएं",
+    "news":"समाचार",
+    "calendar":"कैलेंडर",
     "JanSahayak": "जन सहायक",
     "government_of_haryana_n_welcomes_you":
         "हरियाणा सरकार आपका स्वागत करती है!",
@@ -393,6 +403,7 @@ class AppLocalization extends Translations {
     "member_count": "सदस्य गणना",
     "added_family_members_on_janshayak": "जनसहायक पर जोड़े गए परिवार के सदस्यों की सूची",
     "mobile": "मोबाइल",
+    "family_details": "परिवार विवरण",
     "add_new_member_in_family_on_jansahyak": "जनसहायक पर परिवार में नया सदस्य जोड़ें",
 
 

@@ -1,9 +1,6 @@
 import 'dart:io';
-
 import 'package:JanSahayak/jan_sahayak.dart';
-import 'package:http/http.dart' as http;
 import 'package:open_file/open_file.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class DownloadGalleryScreen extends StatefulWidget {
   const DownloadGalleryScreen({super.key});
@@ -37,11 +34,9 @@ class _DownloadGalleryScreenState extends State<DownloadGalleryScreen> {
                     loading: controller.loader,
                     child: Container(
                       child: Column(
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height,
                             child: getServiceData(),
                           )
                         ],
@@ -59,6 +54,7 @@ class _DownloadGalleryScreenState extends State<DownloadGalleryScreen> {
       return Container(
         child: ListView.builder(
             shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
             itemCount: controller.listItems.length ,
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {

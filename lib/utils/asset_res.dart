@@ -86,6 +86,10 @@ class AssetRes {
   static const photo="${icons}photo.png";
   static const location_cur="${icons}location_cur.png";
   static const ic_remove="${icons}ic_remove.png";
+  static const check="${icons}check.png";
+  static const emblem_of_haryana="${icons}emblem_of_haryana.webp";
+  static const forward_icon="${icons}forward_icon.png";
+  static const previous_icon="${icons}previous_icon.png";
 
   ///__________________________________ fonts __________________________________///
    static const roboto = "roboto";

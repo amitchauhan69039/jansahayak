@@ -77,6 +77,13 @@ class ColorRes {
   static const Color transparentPinkBgColor = Color(0xFFFDD7CC);
   static const Color lightGreyColor = Color(0xFFEFEFEF);
   static const Color harpathlightOrgColor = Color(0xFFFEBEAA);
+  static const Color redColor = Color(0xFFEA4D0A);
+  static const Color previousColor = Color(0xFFF5B874);
+  static const Color forwardColor = Color(0xFF03783B);
+  static const Color noteTextColor = Color(0xFF333333);
+  static const Color ghColor = Color(0xFFDC2B1B);
+  static const Color rhColor = Color(0xFF00A2D3);
+  static const Color sdColor = Color(0xFF00A658);
 
 
 

@@ -70,86 +70,92 @@ class _DownloadScreenState extends State<DownloadScreen> {
               return InkWell(
                 onTap: (){
                 },
-                child: Container(
-                  height: 70,
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 69,
-                        child: Row(
-                          children: [
-                            appSizedBox(width: 10),
+                child: InkWell(
+                  onTap: (){
+                    String mUrl=controller.downloadModel!.data![index].downloadUrl!;
+                    makePhoneCall(mUrl);
+                  },
+                  child: Container(
+                    height: 70,
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 69,
+                          child: Row(
+                            children: [
+                              appSizedBox(width: 10),
 
-                            FadeInImage(
-                              image: NetworkImage(controller.downloadModel!.data![index].imageUrl!,),
-                              placeholder: AssetImage(AssetRes.launchIcon),
-                              imageErrorBuilder:
-                                  (context, error, stackTrace) {
-                                return Image.asset(
-                                  AssetRes.launchIcon,
-                                  width: 45,
-                                  height: 45,);
-                              },
-                              width: 45,
-                              height: 45,
-                            ),
+                              FadeInImage(
+                                image: NetworkImage(controller.downloadModel!.data![index].imageUrl!,),
+                                placeholder: AssetImage(AssetRes.launchIcon),
+                                imageErrorBuilder:
+                                    (context, error, stackTrace) {
+                                  return Image.asset(
+                                    AssetRes.launchIcon,
+                                    width: 45,
+                                    height: 45,);
+                                },
+                                width: 45,
+                                height: 45,
+                              ),
 
-                            appSizedBox(width: 10),
-                            Expanded(
-                                child:Flexible(
-                                  child: Container(
-                                    height: 69,
-                                    child:  Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        PrefService.getString(PrefKeys.selectedLanguage)=="en" ?
-                                        controller.downloadModel!.data![index].engTitle! : controller.downloadModel!.data![index].hinTitle!,
-                                        style: styleW500S12.copyWith(
-                                            fontSize: 13,
-                                            color: ColorRes.black,
-                                            height: 1.1),
+                              appSizedBox(width: 10),
+                              Expanded(
+                                  child:Flexible(
+                                    child: Container(
+                                      height: 69,
+                                      child:  Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.left,
+                                          PrefService.getString(PrefKeys.selectedLanguage)=="en" ?
+                                          controller.downloadModel!.data![index].engTitle! : controller.downloadModel!.data![index].hinTitle!,
+                                          style: styleW500S12.copyWith(
+                                              fontSize: 13,
+                                              color: ColorRes.black,
+                                              height: 1.1),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                )
-                            ),
-                            appSizedBox(width: 5),
-                            Container(
-                              height: 32,
-                              width: 60,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: ColorRes.buttonBgColor,
-                                border: Border.all(
-                                  width: 1,
-                                  color: ColorRes.buttonBorderColor
-                                )
+                                  )
                               ),
-                              child:  Align(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  textAlign: TextAlign.center,
-                                  'view'.tr,
-                                  style: styleOpenW100S12.copyWith(
-                                      fontSize: 11,
-                                      color: ColorRes.buttonTextColor,
-                                      height: 1),
+                              appSizedBox(width: 5),
+                              Container(
+                                height: 32,
+                                width: 60,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    color: ColorRes.buttonBgColor,
+                                  border: Border.all(
+                                    width: 1,
+                                    color: ColorRes.buttonBorderColor
+                                  )
+                                ),
+                                child:  Align(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    textAlign: TextAlign.center,
+                                    'view'.tr,
+                                    style: styleOpenW100S12.copyWith(
+                                        fontSize: 11,
+                                        color: ColorRes.buttonTextColor,
+                                        height: 1),
+                                  ),
                                 ),
                               ),
-                            ),
-                            appSizedBox(width: 10),
-                          ],
+                              appSizedBox(width: 10),
+                            ],
+                          ),
                         ),
-                      ),
-                      Divider(
-                        height:0.5,
-                        color: ColorRes.divider2Color,
-                      ),
+                        Divider(
+                          height:0.5,
+                          color: ColorRes.divider2Color,
+                        ),
 
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               );

@@ -27,90 +27,97 @@ class _NewsListScreenState extends State<NewsListScreen> {
                 return StackedLoader(
                   loading: controller.loader,
                   child: Expanded(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      decoration: BoxDecoration(
-                        image: new DecorationImage(
-                          image: AssetImage(AssetRes.backgroundImage),
-                          fit: BoxFit.cover,
+
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height,
+                          decoration: BoxDecoration(
+                            image: new DecorationImage(
+                              image: AssetImage(AssetRes.backgroundImage),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
-                      ),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Column(
+
+                        SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: Column(
                             mainAxisSize:MainAxisSize.min,
-                          children: [
-                            appSizedBox(height: 10),
-                            Container(
-                                margin: EdgeInsets.only(left: 15,right: 15),
-                                width: double.infinity,
-                                height: 45,
-                                decoration: BoxDecoration(
-                                    borderRadius:
-                                    BorderRadius.circular(7),
-                                    border: Border.all(
-                                      width: 1,
-                                      color: ColorRes.borderColor,
-                                      style: BorderStyle.solid,
-                                    ),
-                                    color: ColorRes.white),
-                                child: Stack(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 10,right: 10),
-                                      child: Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: TextField(
-                                          keyboardType: TextInputType.text,
-                                          textAlignVertical:
-                                          TextAlignVertical.center,
-                                          onChanged: (text) {},
-                                          style: styleW400S13.copyWith(
-                                              fontSize: 16,
-                                              color: ColorRes.black),
-                                          decoration:
-                                          new InputDecoration.collapsed(
-                                            hintText: 'Keyword Search',
-                                            hintStyle:
-                                            styleW400S13.copyWith(
-                                                fontSize: 15,
-                                                color:
-                                                ColorRes.greyColor),
+                            children: [
+                              appSizedBox(height: 10),
+                              Container(
+                                  margin: EdgeInsets.only(left: 15,right: 15),
+                                  width: double.infinity,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                      BorderRadius.circular(7),
+                                      border: Border.all(
+                                        width: 1,
+                                        color: ColorRes.borderColor,
+                                        style: BorderStyle.solid,
+                                      ),
+                                      color: ColorRes.white),
+                                  child: Stack(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 10,right: 10),
+                                        child: Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: TextField(
+                                            keyboardType: TextInputType.text,
+                                            textAlignVertical:
+                                            TextAlignVertical.center,
+                                            onChanged: (text) {},
+                                            style: styleW400S13.copyWith(
+                                                fontSize: 16,
+                                                color: ColorRes.black),
+                                            decoration:
+                                            new InputDecoration.collapsed(
+                                              hintText: 'Keyword Search',
+                                              hintStyle:
+                                              styleW400S13.copyWith(
+                                                  fontSize: 15,
+                                                  color:
+                                                  ColorRes.greyColor),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 10),
-                                      child: Align(
-                                        alignment: Alignment.centerRight,
-                                        child: Image.asset(
-                                          AssetRes.searchIcon,
-                                          height: 20,
-                                          width: 20,
+                                      Padding(
+                                        padding: const EdgeInsets.only(right: 10),
+                                        child: Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Image.asset(
+                                            AssetRes.searchIcon,
+                                            height: 20,
+                                            width: 20,
+                                          ),
                                         ),
                                       ),
+                                      appSizedBox(width: 10),
+                                    ],
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Card(
+                                  elevation: 5,
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: Colors.white
                                     ),
-                                    appSizedBox(width: 10),
-                                  ],
-                                )),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Card(
-                                elevation: 5,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Colors.white
+                                    child: getNewsData(context),
                                   ),
-                                  child: getNewsData(context),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 );
@@ -137,7 +144,6 @@ class _NewsListScreenState extends State<NewsListScreen> {
                   },
                   child: Container(
                     width: double.infinity,
-                    height: 120,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                       color: ColorRes.white,
@@ -145,7 +151,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           appSizedBox(width: 10),
                           Text(
@@ -157,27 +163,27 @@ class _NewsListScreenState extends State<NewsListScreen> {
                                 color: ColorRes.black,
                                 height: 1.1),
                           ),
-                          appSizedBox(height: 5),
-                          Align(
-                              alignment: Alignment.topRight,
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    AssetRes.call_chirayu,
-                                    height: 20,
-                                    width: 20,
-                                  ),
-                                  appSizedBox(height: 5),
-                                  Text(
-                                    textAlign: TextAlign.center,
-                                    "Date: 2023-10-01",
-                                    style: styleW400S18.copyWith(
-                                        fontSize: 15,
-                                        color: ColorRes.borderColor,
-                                        height: 1.1),
-                                  ),
-                                ],
-                              )),
+                          appSizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Image.asset(
+                                AssetRes.call_chirayu,
+                                height: 20,
+                                width: 20,
+                              ),
+                              appSizedBox(height: 10),
+                              Text(
+                                textAlign: TextAlign.justify,
+                                "Date: 2023-10-01",
+                                style: styleW400S18.copyWith(
+                                    fontSize: 15,
+                                    color: ColorRes.borderColor,
+                                    height: 1.1),
+                              ),
+                            ],
+                          ),
+
                           appSizedBox(width: 10),
                         ],
                       ),

@@ -1,12 +1,7 @@
 import 'package:JanSahayak/jan_sahayak.dart';
-
-import '../../../model/java_token_model.dart';
 import '../../../model/map_service_model.dart';
 import '../../../model/news_details_model.dart';
 import '../../../model/news_list_model.dart';
-import '../../../model/saral_auth_model.dart';
-import '../../../model/saral_service_model.dart';
-import 'package:http/http.dart' as http;
 
 class NewsListApi{
 

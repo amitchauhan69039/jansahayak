@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:JanSahayak/jan_sahayak.dart';
 import 'package:JanSahayak/screens/chirayu/chirayudashboard/chirayu_dashboard_screen.dart';
 import 'package:JanSahayak/utils/constants.dart';
+import 'package:path/path.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -118,48 +120,31 @@ class _HomePageState extends State<HomePage> {
                                   child: Card(
                                     elevation: 5.0,
                                     child: Container(
+                                      width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                                          color: ColorRes.white,
+                                        ),
                                         height: 40,
-                                        child: Row(
-                                          children: [
-                                            Expanded(
-                                                child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 10, right: 10),
-                                              child: TextField(
-                                                keyboardType:
-                                                    TextInputType.text,
-                                                textAlignVertical:
-                                                    TextAlignVertical.center,
-                                                style: styleW400S13.copyWith(
-                                                    fontSize: 12,
-                                                    color: ColorRes.textColor),
-                                                decoration:
-                                                    InputDecoration.collapsed(
-                                                  hintText: 'Search'.tr,
-                                                  hintStyle:
-                                                      styleW400S13.copyWith(
-                                                          fontSize: 12,
-                                                          color: ColorRes
-                                                              .textColor),
-                                                ),
-                                              ),
-                                            )),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(10.0),
-                                              child: Align(
-                                                alignment: Alignment.center,
-                                                child: Image.asset(
-                                                  AssetRes.searchIcon,
-                                                  height: 24,
-                                                  width: 24,
-                                                ),
-                                              ),
-                                            )
-                                          ],
-                                        )),
+                                        child:  Padding(
+                                          padding: const EdgeInsets.only(left: 10),
+                                          child: Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              textAlign: TextAlign.left,
+                                              PrefService.getString(PrefKeys.USER_ROLE) == "P" ?
+                                              PrefService.getString(PrefKeys.FAMILY_MEMBERS_NAME) :
+                                              PrefService.getString(PrefKeys.GUEST_NAME),
+                                              style: styleW500S36.copyWith(
+                                                  fontSize: 14,
+                                                  color: ColorRes
+                                                      .appPrimaryDarkColor),
+                                            ),
+                                          ),
+                                        ),
                                   ),
                                 ),
+                              )
                               )
                             ],
                           ),
@@ -272,27 +257,39 @@ class _HomePageState extends State<HomePage> {
                                                     ),
                                                   ),
                                                 ),
-                                                Container(
-                                                  height: 35,
-                                                  width: 70,
-                                                  decoration: BoxDecoration(
-                                                      color: ColorRes
-                                                          .homeOrangeColor),
-                                                  child: Align(
-                                                    alignment: Alignment.center,
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              3.0),
-                                                      child: Text(
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        'View Details'.tr,
-                                                        style: styleW400S20
-                                                            .copyWith(
-                                                                fontSize: 9,
-                                                                color: ColorRes
-                                                                    .white),
+                                                InkWell(
+                                                  onTap: (){
+
+                                                    if (PrefService.getString(PrefKeys.USER_ROLE) == "P") {
+                                                      controller.familyIdSearchForTXN(context);
+
+                                                    } else {
+                                                      Get.to(() => CommonFamilyNotVerfiedScreen());
+                                                    }
+
+                                                  },
+                                                  child: Container(
+                                                    height: 35,
+                                                    width: 70,
+                                                    decoration: BoxDecoration(
+                                                        color: ColorRes
+                                                            .homeOrangeColor),
+                                                    child: Align(
+                                                      alignment: Alignment.center,
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets.all(
+                                                                3.0),
+                                                        child: Text(
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          'View Details'.tr,
+                                                          style: styleW400S20
+                                                              .copyWith(
+                                                                  fontSize: 9,
+                                                                  color: ColorRes
+                                                                      .white),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -665,18 +662,18 @@ class _HomePageState extends State<HomePage> {
                             elevation: 5.0,
                             child: InkWell(
                               onTap: () async {
-                                if(controller.isFolderExist){
-                                  toastMsg("exist");
 
-                                  Future<List<String>> list= controller.getList();
-                                  var ll=await list;
+                              if(await storagePermission()){
+                                if(controller.isFolderExist){
+                                 // Future<List<String>> list= controller.getList();
 
                                   Get.to(() => DownloadGalleryScreen());
-                                  print("exist : "+ll[0]);
 
                                 }else{
                                   toastMsg("No Documents are downloaded yet !");
                                 }
+                              }
+
                               },
                               child: Container(
                                 decoration: BoxDecoration(
@@ -1375,5 +1372,37 @@ class _HomePageState extends State<HomePage> {
     final path ="/storage/emulated/0/${PrefKeys.JAN_DOC_PATH}-${PrefService.getString(PrefKeys.FamilyID)}";
     final checkPathExistence = await Directory(path).exists();
     return checkPathExistence;
+  }
+
+  Future<bool> storagePermission() async {
+    final DeviceInfoPlugin info = DeviceInfoPlugin(); // import 'package:device_info_plus/device_info_plus.dart';
+    final AndroidDeviceInfo androidInfo = await info.androidInfo;
+    debugPrint('releaseVersion : ${androidInfo.version.release}');
+    final int androidVersion = int.parse(androidInfo.version.release);
+    bool havePermission = false;
+
+    // Here you can use android api level
+    // like android api level 33 = android 13
+    // This way you can also find out how to request storage permission
+
+    if (androidVersion >= 13) {
+      final request = await [
+        Permission.videos,
+        Permission.photos,
+        //..... as needed
+      ].request(); //import 'package:permission_handler/permission_handler.dart';
+
+      havePermission = request.values.every((status) => status == PermissionStatus.granted);
+    } else {
+      final status = await Permission.storage.request();
+      havePermission = status.isGranted;
+    }
+
+    if (!havePermission) {
+      // if no permission then open app-setting
+      await openAppSettings();
+    }
+
+    return havePermission;
   }
 }

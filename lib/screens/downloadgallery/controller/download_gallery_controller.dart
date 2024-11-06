@@ -14,7 +14,7 @@ class DownloadGalleryController extends GetxController {
   void onInit() {
     super.onInit();
     getList1();
-    list=getList();
+    //list=getList();
 
   }
 
@@ -25,7 +25,9 @@ class DownloadGalleryController extends GetxController {
     List<String> list=[];
     final path ="/storage/emulated/0/${PrefKeys.JAN_DOC_PATH}-${PrefService.getString(PrefKeys.FamilyID)}";
     Directory dir =await Directory(path);
+    print("path : ${dir}");
     List contents = dir.listSync();
+    print("List contents : ${contents.length}");
     for (var fileOrDir in contents) {
       if (fileOrDir is File) {
         list.add(fileOrDir.path);
@@ -38,8 +40,11 @@ class DownloadGalleryController extends GetxController {
 
     return list;
   }
+
+
   getList1() async {
     update(['gallery']);
+    print("start");
     listItems = await getList();
     update(['gallery']);
   }
