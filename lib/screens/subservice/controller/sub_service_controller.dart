@@ -38,6 +38,8 @@ class SubServiceController extends GetxController {
           if (model.output!.toLowerCase() == "success".toLowerCase()) {
 
             data=model;
+          }else{
+            toastMsg(model.output!);
           }
         }
       } catch (e) {
@@ -72,6 +74,8 @@ class SubServiceController extends GetxController {
             getTokenFromJava(model.token!.trim(), model.referenceNo!, mSaralServiceID);
 
 
+          }else{
+            toastMsg(model.remarks!);
           }
         }
       } catch (e) {

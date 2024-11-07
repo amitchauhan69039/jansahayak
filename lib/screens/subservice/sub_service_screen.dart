@@ -82,7 +82,8 @@ class _SubServiceScreenState extends State<SubServiceScreen> {
                                 Get.to(() => CommonFamilyNotVerfiedScreen());
                               }
 
-                            }else   if(controller.data!.data![index].eSerName!.contains("Meri Fasal")){
+                            }
+                            else   if(controller.data!.data![index].eSerName!.contains("Meri Fasal")){
                               if(PrefService.getString(PrefKeys.USER_ROLE)=="P") {
                                 Get.to(() => MfmbScreen());
 
@@ -94,7 +95,18 @@ class _SubServiceScreenState extends State<SubServiceScreen> {
                               String title=PrefService.getString(PrefKeys.selectedLanguage) =="en" ?
                               controller.data!.data![index].eSerName! :
                               controller.data!.data![index].hSerName! ;
-                              Get.to(() => WebViewScreen(serviceName: title, serviceUrl: controller.data!.data![index].webURL!));
+
+                              var isNumber=isNumeric(controller.data!.data![index].webURL!);
+
+                              if(isNumber){
+
+                                makePhoneCall('tel:${controller.data!.data![index].webURL!}');
+                              //  toastMsg(controller.data!.data![index].webURL!);
+                              }else{
+                                Get.to(() => WebViewScreen(serviceName: title, serviceUrl: controller.data!.data![index].webURL!));
+                              }
+
+
                             }
                           }else {
                             if(PrefService.getString(PrefKeys.USER_ROLE)=="P") {
@@ -253,6 +265,13 @@ class _SubServiceScreenState extends State<SubServiceScreen> {
       );
     }
 
+  }
+
+  bool isNumeric(String s) {
+    if (s == null) {
+      return false;
+    }
+    return double.tryParse(s) != null;
   }
 
 }
